@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import { BsPlayCircle } from 'react-icons/bs';
 
@@ -6,6 +6,7 @@ import Button from 'components/Button';
 import BookmarkButton from 'components/BookmarkButton';
 import Modal from 'components/Modal';
 
+import { getVideos } from 'services/moviesAPI';
 import { IMAGE_BASE_URL } from 'utils/constants';
 import { formatDate } from 'utils/formatting';
 import {
@@ -26,14 +27,20 @@ const MovieInfo = ({ movie }) => {
     release_date,
     vote_average,
   } = movie;
-
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [movieKey, setMovieKey] = useState('');
   const [isSaved, setIsSaved] = useState(() => {
     const data = getDataFromLocalStorage('movies');
     const movies = data ? data : [];
 
     return movies.some(movie => movie.id === id);
   });
+
+  useEffect(() => {
+    getVideos(id)
+      .then(res => setMovieKey(res[0]?.key))
+      .catch(err => console.log(err));
+  }, [id]);
 
   const addToBookmarks = () => {
     const data = getDataFromLocalStorage('movies');
@@ -85,9 +92,11 @@ const MovieInfo = ({ movie }) => {
           </h2>
 
           <div className={styles.box}>
-            <Button handleClick={toggleModal}>
-              Trailer <BsPlayCircle />
-            </Button>
+            {movieKey && (
+              <Button handleClick={toggleModal}>
+                Trailer <BsPlayCircle />
+              </Button>
+            )}
             <BookmarkButton
               isSaved={isSaved}
               addToBookmarks={addToBookmarks}
@@ -95,7 +104,20 @@ const MovieInfo = ({ movie }) => {
             />
           </div>
 
-          {isModalOpen && <Modal closeModal={toggleModal}></Modal>}
+          {isModalOpen && (
+            <Modal closeModal={toggleModal}>
+              <iframe
+                id="player"
+                type="text/html"
+                width="100%"
+                height="100%"
+                src={`https://www.youtube.com/embed/${movieKey}?autoplay=1`}
+                frameBorder="0"
+                allowFullScreen
+                title="trailer"
+              ></iframe>
+            </Modal>
+          )}
         </div>
       </div>
     </>

@@ -50,6 +50,10 @@ const getMovieReviews = id => {
   return axios.get(RESOURCE.movieReviews(id)).then(res => res.data.results);
 };
 
+const getVideos = id => {
+  return axios.get(RESOURCE.videos(id)).then(res => res.data.results);
+};
+
 export {
   getTrendingMovies,
   getGenreList,
@@ -58,4 +62,5 @@ export {
   getMovieDetails,
   getMovieCredits,
   getMovieReviews,
+  getVideos,
 };

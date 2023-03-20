@@ -7,6 +7,7 @@ const RESOURCE = {
   genres: 'genre/movie/list',
   search: 'search/movie',
   discover: 'discover/movie',
+  videos: id => `movie/${id}/videos`,
   movieDetails: id => `movie/${id}`,
   movieCredits: id => `movie/${id}/credits`,
   movieReviews: id => `movie/${id}/reviews`,
