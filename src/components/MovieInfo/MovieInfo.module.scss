@@ -1,0 +1,100 @@
+@use 'assets/sass/mixins' as mixin;
+
+.wrapper {
+  @include mixin.tablet {
+    display: flex;
+  }
+}
+
+.poster {
+  margin: 0 auto 10px;
+
+  @include mixin.tablet {
+    margin-right: 20px;
+    max-width: 300px;
+  }
+
+  @include mixin.desktop {
+    margin-right: 30px;
+    max-width: 400px;
+  }
+}
+
+.info {
+  font-size: 14px;
+  line-height: 1.5;
+
+  @include mixin.tablet {
+    font-size: 16px;
+  }
+
+  @include mixin.desktop {
+    font-size: 18px;
+  }
+}
+
+.title {
+  font-size: 28px;
+
+  text-transform: capitalize;
+
+  @include mixin.tablet {
+    font-size: 32px;
+  }
+
+  @include mixin.desktop {
+    font-size: 36px;
+  }
+}
+
+.score {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  svg {
+    fill: var(--color-accent);
+  }
+}
+
+.genre {
+  margin-bottom: 5px;
+}
+
+.heading {
+  font-size: 20px;
+
+  @include mixin.tablet {
+    font-size: 24px;
+  }
+
+  @include mixin.desktop {
+    font-size: 28px;
+  }
+}
+
+.overview {
+  margin-bottom: 5px;
+
+  color: var(--text-color-secondary);
+}
+
+.date {
+  display: flex;
+  gap: 10px;
+
+  font-size: 16px;
+
+  @include mixin.tablet {
+    font-size: 18px;
+  }
+
+  @include mixin.desktop {
+    font-size: 20px;
+  }
+
+  span {
+    font-weight: 500;
+  }
+}

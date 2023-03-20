@@ -1,11 +1,18 @@
+@use 'assets/sass/mixins' as mixin;
+
 body {
   margin: 0;
+  padding-bottom: 55px;
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
   color: var(--text-color-primary);
   background-color: var(--background-color-primary);
+
+  @include mixin.tablet {
+    padding-bottom: 0;
+  }
 }
 
 code {

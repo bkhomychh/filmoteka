@@ -1,0 +1,50 @@
+@use 'assets/sass/mixins' as mixin;
+
+.genre {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+
+  font-size: 20px;
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+
+  &:before {
+    content: '';
+    display: block;
+    width: 3px;
+
+    background-color: var(--color-accent);
+  }
+
+  @include mixin.tablet {
+    margin-bottom: 20px;
+
+    font-size: 24px;
+  }
+
+  @include mixin.desktop {
+    font-size: 30px;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: auto;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+
+    @include mixin.tablet {
+      margin-bottom: 15px;
+    }
+
+    @include mixin.desktop {
+      margin-bottom: 20px;
+    }
+  }
+}

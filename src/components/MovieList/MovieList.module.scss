@@ -1,70 +1,22 @@
 @use 'assets/sass/mixins' as mixin;
 
-.genre {
-  margin-bottom: 16px;
-
-  font-size: 20px;
-  line-height: 1.5;
-  letter-spacing: 0.05em;
-  text-transform: capitalize;
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 12px;
 
   @include mixin.tablet {
-    margin-bottom: 20px;
-
-    font-size: 24px;
+    grid-template-columns: repeat(5, 1fr);
   }
 
   @include mixin.desktop {
-    font-size: 30px;
+    grid-template-columns: repeat(7, 1fr);
   }
 }
 
-.card {
+.item {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  height: auto;
-
-  &:not(:last-child) {
-    margin-bottom: 10px;
-
-    @include mixin.tablet {
-      margin-bottom: 15px;
-    }
-
-    @include mixin.desktop {
-      margin-bottom: 20px;
-    }
-  }
-}
-
-.link {
-  &:hover {
-    .poster {
-      transform: scale(1.05);
-    }
-  }
-}
-
-.poster {
-  transition: transform 250ms var(--transition-function-primary);
-}
-
-.title {
-  font-size: 14px;
-
-  @include mixin.tablet {
-    font-size: 20px;
-  }
-}
-
-.score {
-  margin-top: auto;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-
-  svg {
-    fill: var(--color-accent);
-  }
 }

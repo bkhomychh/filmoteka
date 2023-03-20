@@ -9,6 +9,7 @@ const BackLink = () => {
   return (
     <Link className={styles.link} to={location.state.from}>
       <FaArrowLeft />
+      <span>Back</span>
     </Link>
   );
 };

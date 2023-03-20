@@ -1,0 +1,42 @@
+@use 'assets/sass/mixins' as mixin;
+
+.link {
+  &:hover {
+    .poster {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.poster {
+  transition: transform 250ms var(--transition-function-primary);
+}
+
+.title {
+  font-size: 14px;
+
+  @include mixin.tablet {
+    font-size: 20px;
+  }
+}
+
+.score {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  font-size: 14px;
+
+  svg {
+    fill: var(--color-accent);
+  }
+
+  @include mixin.tablet {
+    font-size: 16px;
+  }
+
+  @include mixin.desktop {
+    font-size: 18px;
+  }
+}

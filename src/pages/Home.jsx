@@ -1,4 +1,4 @@
-import MovieList from 'components/MovieList';
+import MovieCarousel from 'components/MovieCarousel';
 import { GENRE } from 'utils/constants';
 import { useEffect, useState } from 'react';
 import { getGenreList } from 'services/moviesAPI';
@@ -17,8 +17,8 @@ const Home = () => {
 
   return (
     <>
-      <MovieList genreName={GENRE.TRENDING} />
-      <MovieList genreName={GENRE.ACTION} />
+      <MovieCarousel genreName={GENRE.TRENDING} />
+      <MovieCarousel genreName={GENRE.ACTION} />
     </>
   );
 };

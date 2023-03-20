@@ -3,11 +3,29 @@
 .link {
   padding: 10px;
   display: inline-flex;
+  align-items: center;
+  gap: 10px;
 
   font-size: 24px;
-  color: var(--color-accent);
+
+  transition: color 250ms var(--transition-function-primary);
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: var(--color-accent);
+    outline: none;
+  }
 
   @include mixin.tablet {
     font-size: 30px;
+  }
+
+  svg {
+    font-size: 20px;
+
+    @include mixin.tablet {
+      font-size: 24px;
+    }
   }
 }
