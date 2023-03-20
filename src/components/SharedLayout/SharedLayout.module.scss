@@ -1,0 +1,17 @@
+@use 'assets/sass/mixins' as mixin;
+
+.container {
+  max-width: 480px;
+  min-width: 320px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @include mixin.tablet {
+    max-width: 768px;
+  }
+
+  @include mixin.desktop {
+    max-width: 1200px;
+  }
+}

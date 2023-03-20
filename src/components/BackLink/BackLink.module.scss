@@ -1,0 +1,13 @@
+@use 'assets/sass/mixins' as mixin;
+
+.link {
+  padding: 10px;
+  display: inline-flex;
+
+  font-size: 24px;
+  color: var(--color-accent);
+
+  @include mixin.tablet {
+    font-size: 30px;
+  }
+}
