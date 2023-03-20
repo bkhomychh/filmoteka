@@ -1,0 +1,22 @@
+.btn {
+  padding: 10px 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  line-height: 1;
+  font-weight: 500;
+  color: var(--color-accent);
+  background-color: transparent;
+  border: 1px solid var(--color-accent);
+  border-radius: 10px;
+
+  transition: color 250ms var(--transition-function-primary),
+    background-color 250ms var(--transition-function-primary);
+
+  &:hover,
+  &:focus {
+    color: var(--background-color-primary);
+    background-color: var(--color-accent);
+  }
+}

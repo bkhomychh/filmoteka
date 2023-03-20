@@ -6,7 +6,7 @@
   align-items: center;
   gap: 10px;
 
-  font-size: 24px;
+  font-size: 20px;
 
   transition: color 250ms var(--transition-function-primary);
 
@@ -18,14 +18,14 @@
   }
 
   @include mixin.tablet {
-    font-size: 30px;
+    font-size: 24px;
   }
 
   svg {
-    font-size: 20px;
+    font-size: 16px;
 
     @include mixin.tablet {
-      font-size: 24px;
+      font-size: 20px;
     }
   }
 }

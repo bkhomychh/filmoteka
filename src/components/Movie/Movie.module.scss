@@ -9,6 +9,9 @@
 }
 
 .poster {
+  min-height: 234px;
+  object-fit: cover;
+
   transition: transform 250ms var(--transition-function-primary);
 }
 

@@ -1,6 +1,7 @@
-import MovieList from 'components/MovieList';
 import { useState, useEffect } from 'react';
 import { getDataFromLocalStorage } from 'services/localStorage';
+
+import MovieList from 'components/MovieList';
 
 const Bookmarks = () => {
   const [movies, setMovies] = useState([]);
@@ -13,7 +14,7 @@ const Bookmarks = () => {
 
   return (
     <>
-      <h1>Bookmarks </h1>
+      <h1>Bookmarks</h1>
       <MovieList movies={movies} />
     </>
   );

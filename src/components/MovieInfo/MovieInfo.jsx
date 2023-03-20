@@ -13,6 +13,8 @@ import {
 
 import styles from './MovieInfo.module.scss';
 
+import imagePlaceHolder from 'assets/images/image-place-holder.png';
+
 const MovieInfo = ({ movie }) => {
   const {
     id,
@@ -55,14 +57,12 @@ const MovieInfo = ({ movie }) => {
     setIsSaved(false);
   };
 
+  const imgUrl = poster_path ? IMAGE_BASE_URL + poster_path : imagePlaceHolder;
+
   return (
     <>
       <div className={styles.wrapper}>
-        <img
-          className={styles.poster}
-          src={IMAGE_BASE_URL + poster_path}
-          alt={title}
-        />
+        <img className={styles.poster} src={imgUrl} alt={title} />
         <div className={styles.info}>
           <h1 className={styles.title}>{title}</h1>
           <p className={styles.score}>
@@ -77,15 +77,17 @@ const MovieInfo = ({ movie }) => {
             Release date:
             <span>{formatDate(release_date)}</span>
           </h2>
-          <BookmarkButton
-            isSaved={isSaved}
-            addToBookmarks={addToBookmarks}
-            removeFromBookMarks={removeFromBookMarks}
-          />
 
-          <Button handleClick={() => {}}>
-            Trailer <BsPlayCircle />
-          </Button>
+          <div className={styles.box}>
+            <Button handleClick={() => {}}>
+              Trailer <BsPlayCircle />
+            </Button>
+            <BookmarkButton
+              isSaved={isSaved}
+              addToBookmarks={addToBookmarks}
+              removeFromBookMarks={removeFromBookMarks}
+            />
+          </div>
         </div>
       </div>
     </>

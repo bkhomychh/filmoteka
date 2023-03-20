@@ -3,6 +3,7 @@
 .wrapper {
   @include mixin.tablet {
     display: flex;
+    justify-content: flex-start;
   }
 }
 
@@ -10,12 +11,12 @@
   margin: 0 auto 10px;
 
   @include mixin.tablet {
-    margin-right: 20px;
+    margin: 0 20px 10px 0;
     max-width: 300px;
   }
 
   @include mixin.desktop {
-    margin-right: 30px;
+    margin: 0 30px 10px 0;
     max-width: 400px;
   }
 }
@@ -81,6 +82,7 @@
 }
 
 .date {
+  margin-bottom: 10px;
   display: flex;
   gap: 10px;
 
@@ -97,4 +99,9 @@
   span {
     font-weight: 500;
   }
+}
+
+.box {
+  display: flex;
+  gap: 20px;
 }

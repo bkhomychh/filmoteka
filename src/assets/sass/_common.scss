@@ -2,7 +2,8 @@
 
 body {
   margin: 0;
-  padding-bottom: 55px;
+  padding-top: 10px;
+  padding-bottom: 60px;
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -11,6 +12,7 @@ body {
   background-color: var(--background-color-primary);
 
   @include mixin.tablet {
+    padding-top: 0;
     padding-bottom: 0;
   }
 }
@@ -18,4 +20,20 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1 {
+  margin-bottom: 16px;
+  font-size: 28px;
+
+  @include mixin.tablet {
+    margin-bottom: 20px;
+
+    font-size: 32px;
+  }
+}
+
+a,
+button {
+  cursor: pointer;
 }

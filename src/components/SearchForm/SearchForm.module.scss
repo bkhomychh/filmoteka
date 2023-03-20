@@ -1,0 +1,53 @@
+@use 'assets/sass/mixins' as mixin;
+
+.form {
+  position: relative;
+
+  margin-bottom: 16px;
+  max-width: 250px;
+
+  @include mixin.tablet {
+    margin-bottom: 20px;
+    max-width: 300px;
+  }
+}
+
+.searchField {
+  padding: 20px 15px 20px 40px;
+  width: 100%;
+
+  font-size: 16px;
+  color: var(--text-color-primary);
+
+  border-radius: 10px;
+  background-color: var(--background-color-secondary);
+
+  outline: none;
+  border: none;
+
+  transition: box-shadow 250ms var(--transition-function-primary);
+
+  &:focus {
+    box-shadow: 0 0 3px 1px var(--color-accent);
+  }
+
+  &::placeholder {
+    color: var(--text-color-secondary);
+  }
+}
+
+.btn {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: inherit;
+  background-color: transparent;
+
+  transform: translateY(-50%);
+}

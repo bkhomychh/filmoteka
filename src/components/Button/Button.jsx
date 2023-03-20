@@ -1,7 +1,13 @@
 import PropTypes from 'prop-types';
 
+import styles from './Button.module.scss';
+
 const Button = ({ handleClick, children }) => {
-  return <button onClick={handleClick}>{children}</button>;
+  return (
+    <button className={styles.btn} onClick={handleClick}>
+      {children}
+    </button>
+  );
 };
 
 Button.propTypes = {
