@@ -42,7 +42,7 @@ const MovieCarousel = ({ genreName }) => {
     getMoviesByGenre(genreName)
       .then(res => setMovies(res))
       .catch(err => console.log(err));
-  }, []);
+  }, [genreName]);
 
   return (
     <>

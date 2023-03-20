@@ -4,6 +4,8 @@ import { BsPlayCircle } from 'react-icons/bs';
 
 import Button from 'components/Button';
 import BookmarkButton from 'components/BookmarkButton';
+import Modal from 'components/Modal';
+
 import { IMAGE_BASE_URL } from 'utils/constants';
 import { formatDate } from 'utils/formatting';
 import {
@@ -12,7 +14,6 @@ import {
 } from 'services/localStorage';
 
 import styles from './MovieInfo.module.scss';
-
 import imagePlaceHolder from 'assets/images/image-place-holder.png';
 
 const MovieInfo = ({ movie }) => {
@@ -26,6 +27,7 @@ const MovieInfo = ({ movie }) => {
     vote_average,
   } = movie;
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSaved, setIsSaved] = useState(() => {
     const data = getDataFromLocalStorage('movies');
     const movies = data ? data : [];
@@ -57,6 +59,10 @@ const MovieInfo = ({ movie }) => {
     setIsSaved(false);
   };
 
+  const toggleModal = () => {
+    setIsModalOpen(state => !state);
+  };
+
   const imgUrl = poster_path ? IMAGE_BASE_URL + poster_path : imagePlaceHolder;
 
   return (
@@ -79,7 +85,7 @@ const MovieInfo = ({ movie }) => {
           </h2>
 
           <div className={styles.box}>
-            <Button handleClick={() => {}}>
+            <Button handleClick={toggleModal}>
               Trailer <BsPlayCircle />
             </Button>
             <BookmarkButton
@@ -88,6 +94,8 @@ const MovieInfo = ({ movie }) => {
               removeFromBookMarks={removeFromBookMarks}
             />
           </div>
+
+          {isModalOpen && <Modal closeModal={toggleModal}></Modal>}
         </div>
       </div>
     </>

@@ -13,6 +13,7 @@ const Home = () => {
     });
   }, []);
 
+  console.log(genres);
   // useEffect(() => { }, [genres])
 
   return (

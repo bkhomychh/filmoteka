@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { IoHomeOutline } from 'react-icons/io5';
 import { GoSearch } from 'react-icons/go';
-import { FaRegBookmark, FaBookmark } from 'react-icons/fa';
+import { FaRegBookmark } from 'react-icons/fa';
 
 import styles from './Navbar.module.scss';
 
