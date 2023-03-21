@@ -1,15 +1,15 @@
-import 'services/moviesAPI';
-import { Routes, Route } from 'react-router-dom';
-import SharedLayout from './SharedLayout';
-
 import { lazy } from 'react';
+import { Routes, Route } from 'react-router-dom';
+
+import SharedLayout from 'components/SharedLayout';
+import 'services/moviesAPI';
 
 const Home = lazy(() => import('pages/Home'));
 const Bookmarks = lazy(() => import('pages/Bookmarks'));
 const Search = lazy(() => import('pages/Search'));
 const MovieDetails = lazy(() => import('pages/MovieDetails'));
 
-export const App = () => {
+const App = () => {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
@@ -21,3 +21,5 @@ export const App = () => {
     </Routes>
   );
 };
+
+export default App;

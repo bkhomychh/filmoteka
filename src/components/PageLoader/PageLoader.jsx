@@ -2,7 +2,7 @@ import { ThreeDots } from 'react-loader-spinner';
 
 import styles from './PageLoader.module.scss';
 
-const PageLoader = props => {
+const PageLoader = () => {
   return (
     <div className={styles.wrapper}>
       <ThreeDots

@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+import { FaBookmark } from 'react-icons/fa';
 import { AiFillStar } from 'react-icons/ai';
+
+import { getDataFromLocalStorage } from 'services/localStorage';
 import { IMAGE_BASE_URL } from 'utils/constants';
 
-import styles from './Movie.module.scss';
 import imagePlaceHolder from 'assets/images/image-place-holder.png';
-import { FaBookmark } from 'react-icons/fa';
-import { getDataFromLocalStorage } from 'services/localStorage';
+import styles from './Movie.module.scss';
 
 const Movie = ({ movie, location }) => {
   const { id, title, poster_path, vote_average } = movie;
@@ -30,6 +33,11 @@ const Movie = ({ movie, location }) => {
       </p>
     </>
   );
+};
+
+Movie.propTypes = {
+  movie: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
 export default Movie;

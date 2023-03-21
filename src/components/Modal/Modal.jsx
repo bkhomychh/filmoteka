@@ -39,7 +39,7 @@ const Modal = ({ closeModal, children }) => {
 };
 
 Modal.propTypes = {
-  onClose: PropTypes.func,
+  closeModal: PropTypes.func,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,

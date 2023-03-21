@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+
 import { AiFillStar } from 'react-icons/ai';
 import { BsPlayCircle } from 'react-icons/bs';
-
 import Button from 'components/Button';
 import BookmarkButton from 'components/BookmarkButton';
 import Modal from 'components/Modal';
@@ -14,8 +15,8 @@ import {
   saveDataToLocalStorage,
 } from 'services/localStorage';
 
-import styles from './MovieInfo.module.scss';
 import imagePlaceHolder from 'assets/images/image-place-holder.png';
+import styles from './MovieInfo.module.scss';
 
 const MovieInfo = ({ movie }) => {
   const {
@@ -122,6 +123,10 @@ const MovieInfo = ({ movie }) => {
       </div>
     </>
   );
+};
+
+MovieInfo.propTypes = {
+  movie: PropTypes.object.isRequired,
 };
 
 export default MovieInfo;

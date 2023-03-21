@@ -25,10 +25,10 @@ const getMoviesBySearchQuery = searchQuery => {
   return axios.get(RESOURCE.search, options).then(res => res.data.results);
 };
 
-const getMoviesByGenre = genre => {
+const getMoviesByGenre = genreId => {
   const options = {
     params: {
-      with_genres: genre,
+      with_genres: genreId,
       sort_by: 'popularity.desc',
       'vote_average.gte': 5,
       'primary_release_date.gte': '2010-01-01',

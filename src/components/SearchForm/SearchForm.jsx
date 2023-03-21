@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { GoSearch } from 'react-icons/go';
 import styles from './SearchForm.module.scss';
 
@@ -22,6 +24,10 @@ const SearchForm = ({ updateQueryString }) => {
       </button>
     </form>
   );
+};
+
+SearchForm.propTypes = {
+  updateQueryString: PropTypes.func.isRequired,
 };
 
 export default SearchForm;

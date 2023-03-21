@@ -13,7 +13,9 @@ const BookmarkButton = ({ addToBookmarks, removeFromBookMarks, isSaved }) => {
 };
 
 BookmarkButton.propTypes = {
-  id: PropTypes.number,
+  addToBookmarks: PropTypes.func.isRequired,
+  removeFromBookMarks: PropTypes.func.isRequired,
+  isSaved: PropTypes.bool.isRequired,
 };
 
 export default BookmarkButton;

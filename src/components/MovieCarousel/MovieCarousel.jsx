@@ -1,21 +1,23 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/controller';
+import { useInView } from 'react-intersection-observer';
 
 import Movie from 'components/Movie/Movie';
-import MovieLoaderList from 'components/MovieLoaderList';
+import PageLoader from 'components/PageLoader';
 
 import { getTrendingMovies, getMoviesByGenre } from 'services/moviesAPI';
-import { STATUS } from 'utils/constants';
+import { GENRE, STATUS } from 'utils/constants';
 
 import styles from './MovieCarousel.module.scss';
 
-const MovieCarousel = ({ genreName }) => {
+const MovieCarousel = ({ genre: { name, id } }) => {
   const [status, setStatus] = useState(STATUS.IDLE);
   const [movies, setMovies] = useState([]);
   const sliderOptions = {
@@ -33,11 +35,21 @@ const MovieCarousel = ({ genreName }) => {
     },
   };
   const location = useLocation();
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 1,
+    rootMargin: '100px',
+    initialInView: false,
+  });
 
   useEffect(() => {
+    if (!inView) {
+      return;
+    }
+
     setStatus(STATUS.PENDING);
 
-    if (genreName === 'trending') {
+    if (name === GENRE.TRENDING) {
       getTrendingMovies()
         .then(res => {
           setMovies(res);
@@ -50,7 +62,7 @@ const MovieCarousel = ({ genreName }) => {
       return;
     }
 
-    getMoviesByGenre(genreName)
+    getMoviesByGenre(id)
       .then(res => {
         setMovies(res);
         setStatus(STATUS.RESOLVED);
@@ -59,12 +71,14 @@ const MovieCarousel = ({ genreName }) => {
         console.log(err);
         setStatus(STATUS.REJECTED);
       });
-  }, [genreName]);
+  }, [name, id, inView]);
 
   return (
-    <>
-      <h2 className={styles.genre}>{genreName}</h2>
-      {status === STATUS.PENDING && <MovieLoaderList />}
+    <div className={styles.wrapper}>
+      <h2 className={styles.genre} ref={ref}>
+        {name}
+      </h2>
+      {status === STATUS.PENDING && <PageLoader />}
       {status === STATUS.RESOLVED && movies.length > 0 && (
         <Swiper {...sliderOptions}>
           {movies.map(movie => (
@@ -74,8 +88,12 @@ const MovieCarousel = ({ genreName }) => {
           ))}
         </Swiper>
       )}
-    </>
+    </div>
   );
+};
+
+MovieCarousel.propTypes = {
+  genre: PropTypes.object.isRequired,
 };
 
 export default MovieCarousel;
