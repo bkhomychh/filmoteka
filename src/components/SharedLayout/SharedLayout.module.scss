@@ -1,5 +1,10 @@
 @use 'assets/sass/mixins' as mixin;
 
+.header {
+  margin-bottom: 20px;
+  padding: 10px 0;
+}
+
 .container {
   max-width: 480px;
   min-width: 320px;
@@ -13,5 +18,36 @@
 
   @include mixin.desktop {
     max-width: 1200px;
+  }
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 30px;
+  font-weight: 500;
+
+  transition: color 250ms var(--transition-function-primary);
+
+  &:hover,
+  &:active {
+    color: var(--color-accent);
+  }
+
+  @include mixin.tablet {
+    font-size: 34px;
+  }
+
+  @include mixin.desktop {
+    font-size: 36px;
   }
 }

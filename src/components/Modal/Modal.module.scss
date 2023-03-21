@@ -1,10 +1,12 @@
+@use 'assets/sass/mixins' as mixin;
+
 .backdrop {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
 
-  padding: 50px;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,11 +14,20 @@
   height: 100%;
 
   background-color: rgba(0, 0, 0, 0.8);
+
+  @include mixin.tablet {
+    padding: 50px;
+  }
 }
 
 .modal {
-  width: 90%;
-  height: 80%;
+  width: 60%;
+  min-width: 320px;
+  height: 50%;
 
   background-color: white;
+
+  @include mixin.tablet {
+    height: 70%;
+  }
 }

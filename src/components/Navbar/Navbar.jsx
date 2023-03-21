@@ -24,7 +24,6 @@ const Navbar = () => {
         <li>
           <NavLink className={styles.link} to="bookmarks">
             <FaRegBookmark />
-            {/* <FaBookmark /> */}
             Bookmarks
           </NavLink>
         </li>

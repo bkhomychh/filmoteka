@@ -1,0 +1,14 @@
+@use 'assets/sass/mixins' as mixin;
+
+.toggle {
+  display: inline-flex;
+
+  font-size: 24px;
+  color: var(--text-color-primary);
+
+  background-color: transparent;
+
+  @include mixin.tablet {
+    font-size: 28px;
+  }
+}

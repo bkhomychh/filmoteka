@@ -9,10 +9,15 @@
 }
 
 .poster {
-  min-height: 234px;
+  max-height: 200px;
   object-fit: cover;
 
   transition: transform 250ms var(--transition-function-primary);
+
+  @include mixin.tablet {
+    min-height: 234px;
+    max-height: auto;
+  }
 }
 
 .title {
