@@ -1,14 +1,29 @@
 @use 'assets/sass/mixins' as mixin;
 
 .toggle {
+  padding: 5px;
   display: inline-flex;
 
-  font-size: 24px;
+  font-size: 28px;
   color: var(--text-color-primary);
 
   background-color: transparent;
 
   @include mixin.tablet {
     font-size: 28px;
+  }
+}
+
+.icon {
+  animation: appear 500ms both var(--transition-function-primary);
+}
+
+@keyframes appear {
+  0% {
+    transform: scale(0) rotate(-180deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
   }
 }

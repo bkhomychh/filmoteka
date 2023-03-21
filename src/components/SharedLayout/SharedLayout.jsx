@@ -1,9 +1,11 @@
+import { Suspense } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { BiMoviePlay } from 'react-icons/bi';
 
 import styles from './SharedLayout.module.scss';
 import Navbar from 'components/Navbar';
 import ThemeToggle from 'components/ThemeToggle';
+import PageLoader from 'components/PageLoader';
 
 const SharedLayout = () => {
   return (
@@ -20,7 +22,9 @@ const SharedLayout = () => {
       </header>
       <main>
         <div className={styles.container}>
-          <Outlet />
+          <Suspense fallback={<PageLoader />}>
+            <Outlet />
+          </Suspense>
         </div>
       </main>
       <footer>

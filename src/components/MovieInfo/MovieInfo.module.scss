@@ -35,8 +35,9 @@
 }
 
 .title {
-  font-size: 28px;
+  margin-bottom: 0;
 
+  font-size: 28px;
   text-transform: capitalize;
 
   @include mixin.tablet {

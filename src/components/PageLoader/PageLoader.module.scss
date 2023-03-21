@@ -1,0 +1,25 @@
+@use 'assets/sass/mixins' as mixin;
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.loader {
+  svg {
+    width: 50px;
+    height: 50px;
+
+    fill: var(--color-accent);
+
+    @include mixin.tablet {
+      width: 75px;
+      height: 75px;
+    }
+
+    @include mixin.desktop {
+      width: 100px;
+      height: 100px;
+    }
+  }
+}

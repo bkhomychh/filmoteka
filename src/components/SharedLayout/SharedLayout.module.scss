@@ -44,10 +44,14 @@
   }
 
   @include mixin.tablet {
+    margin-right: 20px;
+
     font-size: 34px;
   }
 
   @include mixin.desktop {
+    margin-right: 30px;
+
     font-size: 36px;
   }
 }

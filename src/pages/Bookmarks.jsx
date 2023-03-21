@@ -15,7 +15,7 @@ const Bookmarks = () => {
   return (
     <>
       <h1>Bookmarks</h1>
-      <MovieList movies={movies} />
+      {movies.length > 0 ? <MovieList movies={movies} /> : <p>Lets discover</p>}
     </>
   );
 };

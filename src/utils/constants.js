@@ -26,4 +26,11 @@ const GENRE = {
   WESTERN: 'western',
 };
 
-export { BASE_URL, IMAGE_BASE_URL, API_KEY, RESOURCE, GENRE };
+const STATUS = {
+  IDLE: 'idle',
+  PENDING: 'pending',
+  REJECTED: 'rejected',
+  RESOLVED: 'resolved',
+};
+
+export { BASE_URL, IMAGE_BASE_URL, API_KEY, RESOURCE, GENRE, STATUS };

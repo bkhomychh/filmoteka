@@ -29,7 +29,11 @@ const ThemeToggle = () => {
 
   return (
     <button className={styles.toggle} onClick={toggleTheme}>
-      {isLight ? <BiSun /> : <BiMoon />}
+      {isLight ? (
+        <BiSun className={styles.icon} />
+      ) : (
+        <BiMoon className={styles.icon} />
+      )}
     </button>
   );
 };
