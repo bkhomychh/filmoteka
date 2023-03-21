@@ -8,14 +8,17 @@ const Bookmarks = () => {
 
   useEffect(() => {
     const data = getDataFromLocalStorage('movies');
-
-    setMovies(data);
+    data && setMovies(data);
   }, []);
 
   return (
     <>
       <h1>Bookmarks</h1>
-      {movies.length > 0 ? <MovieList movies={movies} /> : <p>Lets discover</p>}
+      {movies.length > 0 ? (
+        <MovieList movies={movies} />
+      ) : (
+        <p>Unfortunately, there are no bookmarks :(</p>
+      )}
     </>
   );
 };

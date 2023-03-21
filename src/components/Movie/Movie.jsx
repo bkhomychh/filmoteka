@@ -15,7 +15,7 @@ const Movie = ({ movie, location }) => {
   const imgUrl = poster_path ? IMAGE_BASE_URL + poster_path : imagePlaceHolder;
 
   const data = getDataFromLocalStorage('movies');
-  const isSaved = data.some(el => el.id === id);
+  const isSaved = data ? data.some(el => el.id === id) : false;
 
   return (
     <>
