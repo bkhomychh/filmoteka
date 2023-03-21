@@ -1,6 +1,8 @@
 @use 'assets/sass/mixins' as mixin;
 
 .link {
+  position: relative;
+
   &:hover {
     .poster {
       transform: scale(1.05);
@@ -18,6 +20,15 @@
     min-height: 234px;
     max-height: auto;
   }
+}
+
+.icon {
+  position: absolute;
+  top: 0;
+  right: 10%;
+
+  font-size: 20px;
+  color: var(--color-accent);
 }
 
 .title {

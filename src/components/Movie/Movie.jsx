@@ -4,10 +4,15 @@ import { IMAGE_BASE_URL } from 'utils/constants';
 
 import styles from './Movie.module.scss';
 import imagePlaceHolder from 'assets/images/image-place-holder.png';
+import { FaBookmark } from 'react-icons/fa';
+import { getDataFromLocalStorage } from 'services/localStorage';
 
 const Movie = ({ movie, location }) => {
   const { id, title, poster_path, vote_average } = movie;
   const imgUrl = poster_path ? IMAGE_BASE_URL + poster_path : imagePlaceHolder;
+
+  const data = getDataFromLocalStorage('movies');
+  const isSaved = data.some(el => el.id === id);
 
   return (
     <>
@@ -17,6 +22,7 @@ const Movie = ({ movie, location }) => {
         state={{ from: location }}
       >
         <img className={styles.poster} src={imgUrl} alt={title} />
+        {isSaved && <FaBookmark className={styles.icon} />}
       </Link>
       <h3 className={styles.title}>{title}</h3>
       <p className={styles.score}>

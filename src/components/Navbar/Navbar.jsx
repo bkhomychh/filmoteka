@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import { IoHomeOutline } from 'react-icons/io5';
+import { IoHome } from 'react-icons/io5';
 import { GoSearch } from 'react-icons/go';
-import { FaRegBookmark } from 'react-icons/fa';
+import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
 
 import styles from './Navbar.module.scss';
 
@@ -11,7 +11,7 @@ const Navbar = () => {
       <ul className={styles.list}>
         <li>
           <NavLink className={styles.link} to="/">
-            <IoHomeOutline />
+            <IoHome />
             Home
           </NavLink>
         </li>
@@ -23,7 +23,7 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink className={styles.link} to="bookmarks">
-            <FaRegBookmark />
+            <FaBookmark />
             Bookmarks
           </NavLink>
         </li>
