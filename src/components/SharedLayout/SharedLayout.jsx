@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { BiMoviePlay } from 'react-icons/bi';
 
@@ -10,10 +10,9 @@ import PageLoader from 'components/PageLoader';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// import 'simplebar'; // or "import SimpleBar from 'simplebar';" if you want to use it manually.
 import SimpleBar from 'simplebar';
 import 'simplebar/dist/simplebar.css';
-import { useEffect } from 'react';
+import { BsGithub } from 'react-icons/bs';
 
 const rootContainer = document.getElementById('root');
 
@@ -38,15 +37,27 @@ const SharedLayout = () => {
           <ThemeToggle />
         </div>
       </header>
-      <main>
+      <main className={styles.main}>
         <div className={styles.container}>
           <Suspense fallback={<PageLoader />}>
             <Outlet />
           </Suspense>
         </div>
       </main>
-      <footer>
-        <div className={styles.container}></div>
+      <footer className={styles.footer}>
+        <div className={styles.container}>
+          <p className={styles.mark}>
+            <span>Made by </span>&nbsp;
+            <a
+              href="https://github.com/bkhomychh"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              bkhomychh
+              <BsGithub />
+            </a>
+          </p>
+        </div>
       </footer>
       <ToastContainer />
     </>

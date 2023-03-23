@@ -1,18 +1,5 @@
 @use 'assets/sass/mixins' as mixin;
 
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
-
-  padding: 10px 0;
-  width: 100%;
-
-  background-color: var(--background-color-primary);
-  box-shadow: 0 0 1px var(--text-color-primary);
-}
-
 .container {
   max-width: 480px;
   min-width: 320px;
@@ -27,6 +14,23 @@
   @include mixin.desktop {
     max-width: 1200px;
   }
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  padding: 10px 0;
+  width: 100%;
+
+  background-color: var(--background-color-primary);
+  box-shadow: 0 0 1px var(--text-color-primary);
+}
+
+.main {
+  padding-bottom: 30px;
 }
 
 .wrapper {
@@ -62,5 +66,44 @@
     margin-right: 30px;
 
     font-size: 36px;
+  }
+}
+
+.footer {
+  padding: 20px 0;
+
+  background-color: var(--background-color-primary);
+  box-shadow: 0 0 1px var(--text-color-primary);
+
+  @include mixin.tablet {
+    padding: 30px 0;
+  }
+}
+
+.mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  svg {
+    font-size: 20px;
+  }
+
+  @include mixin.tablet {
+    font-size: 20px;
+
+    svg {
+      font-size: 24px;
+    }
   }
 }

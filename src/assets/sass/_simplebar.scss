@@ -3,3 +3,9 @@ div.simplebar-scrollbar {
     background-color: var(--text-color-primary);
   }
 }
+
+div.simplebar-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}

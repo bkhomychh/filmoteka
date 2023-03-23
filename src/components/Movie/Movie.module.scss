@@ -3,6 +3,8 @@
 .link {
   position: relative;
 
+  overflow: hidden;
+
   &:hover {
     .poster {
       transform: scale(1.05);
@@ -11,14 +13,14 @@
 }
 
 .poster {
-  max-height: 200px;
+  min-height: 200px;
   object-fit: cover;
 
   transition: transform 250ms var(--transition-function-primary);
 
   @include mixin.tablet {
     min-height: 234px;
-    max-height: auto;
+    max-height: none;
   }
 }
 

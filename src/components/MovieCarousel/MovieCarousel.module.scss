@@ -30,6 +30,10 @@
   }
 }
 
+.icon {
+  fill: var(--color-accent);
+}
+
 .card {
   display: flex;
   flex-direction: column;

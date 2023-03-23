@@ -16,6 +16,7 @@ import { getTrendingMovies, getMoviesByGenre } from 'services/moviesAPI';
 import { GENRE, STATUS } from 'utils/constants';
 
 import styles from './MovieCarousel.module.scss';
+import { BsFire } from 'react-icons/bs';
 
 const MovieCarousel = ({ genre: { name, id } }) => {
   const [status, setStatus] = useState(STATUS.IDLE);
@@ -27,13 +28,26 @@ const MovieCarousel = ({ genre: { name, id } }) => {
     modules: [Navigation],
     breakpoints: {
       768: {
-        slidesPerView: 5,
+        slidesPerView: 4,
       },
       1200: {
-        slidesPerView: 7,
+        slidesPerView: 5,
       },
     },
   };
+
+  if (name === GENRE.TRENDING) {
+    sliderOptions.slidesPerView = 1;
+    sliderOptions.breakpoints = {
+      768: {
+        slidesPerView: 2,
+      },
+      1200: {
+        slidesPerView: 3,
+      },
+    };
+  }
+
   const location = useLocation();
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -77,6 +91,7 @@ const MovieCarousel = ({ genre: { name, id } }) => {
     <div className={styles.wrapper}>
       <h2 className={styles.genre} ref={ref}>
         {name}
+        {name === GENRE.TRENDING && <BsFire className={styles.icon} />}
       </h2>
       {status === STATUS.PENDING && <PageLoader />}
       {status === STATUS.RESOLVED && movies.length > 0 && (
