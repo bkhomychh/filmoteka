@@ -10,7 +10,22 @@ import PageLoader from 'components/PageLoader';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+// import 'simplebar'; // or "import SimpleBar from 'simplebar';" if you want to use it manually.
+import SimpleBar from 'simplebar';
+import 'simplebar/dist/simplebar.css';
+import { useEffect } from 'react';
+
+const rootContainer = document.getElementById('root');
+
 const SharedLayout = () => {
+  useEffect(() => {
+    if (rootContainer.hasAttribute('data-simplebar')) {
+      return;
+    }
+
+    new SimpleBar(rootContainer);
+  }, []);
+
   return (
     <>
       <header className={styles.header}>

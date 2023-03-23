@@ -1,29 +1,27 @@
 @use 'assets/sass/mixins' as mixin;
 
-body {
-  .swiper-button-prev,
-  .swiper-button-next {
-    padding: 15px 25px;
+div.swiper-button-prev,
+div.swiper-button-next {
+  padding: 15px 25px;
 
-    color: var(--color-accent);
-    transition: transform 250ms var(--transition-function-primary);
+  color: var(--color-accent);
+  transition: transform 250ms var(--transition-function-primary);
 
-    &:hover {
-      transform: scale(1.15);
+  &:hover {
+    transform: scale(1.15);
+  }
+
+  &::before,
+  &::after {
+    font-size: 18px;
+    font-weight: 700;
+
+    @include mixin.tablet {
+      font-size: 24px;
     }
 
-    &::before,
-    &::after {
-      font-size: 18px;
-      font-weight: 700;
-
-      @include mixin.tablet {
-        font-size: 24px;
-      }
-
-      @include mixin.desktop {
-        font-size: 30px;
-      }
+    @include mixin.desktop {
+      font-size: 30px;
     }
   }
 }
