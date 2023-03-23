@@ -6,6 +6,7 @@ import { BsPlayCircle } from 'react-icons/bs';
 import Button from 'components/Button';
 import BookmarkButton from 'components/BookmarkButton';
 import Modal from 'components/Modal';
+import Trailer from 'components/Trailer';
 
 import { getVideos } from 'services/moviesAPI';
 import { IMAGE_BASE_URL } from 'utils/constants';
@@ -107,16 +108,7 @@ const MovieInfo = ({ movie }) => {
 
           {isModalOpen && (
             <Modal closeModal={toggleModal}>
-              <iframe
-                id="player"
-                type="text/html"
-                width="100%"
-                height="100%"
-                src={`https://www.youtube.com/embed/${movieKey}?autoplay=1`}
-                frameBorder="0"
-                allowFullScreen
-                title="trailer"
-              ></iframe>
+              <Trailer movieKey={movieKey} />
             </Modal>
           )}
         </div>
