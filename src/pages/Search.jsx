@@ -7,6 +7,9 @@ import MovieLoaderList from 'components/MovieLoaderList';
 import { getMoviesBySearchQuery } from 'services/moviesAPI';
 import { STATUS } from 'utils/constants';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Search = () => {
   const [status, setStatus] = useState(STATUS.IDLE);
   const [movies, setMovies] = useState([]);
@@ -18,14 +21,29 @@ const Search = () => {
       return;
     }
 
+    const noticeOptions = {
+      position: 'top-right',
+      autoClose: 2500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      progress: undefined,
+      theme: 'light',
+    };
+
     setStatus(STATUS.PENDING);
     getMoviesBySearchQuery(searchQuery)
       .then(res => {
         setMovies(res);
         setStatus(STATUS.RESOLVED);
+        res.length < 1 &&
+          toast.error(
+            `Sorry, I couldn't find the movies you requested :(`,
+            noticeOptions
+          );
       })
       .catch(err => {
-        console.log(err);
+        toast.error(err.message, noticeOptions);
         setStatus(STATUS.REJECTED);
       });
   }, [searchQuery]);

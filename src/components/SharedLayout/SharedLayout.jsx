@@ -7,6 +7,9 @@ import Navbar from 'components/Navbar';
 import ThemeToggle from 'components/ThemeToggle';
 import PageLoader from 'components/PageLoader';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const SharedLayout = () => {
   return (
     <>
@@ -30,6 +33,7 @@ const SharedLayout = () => {
       <footer>
         <div className={styles.container}></div>
       </footer>
+      <ToastContainer />
     </>
   );
 };

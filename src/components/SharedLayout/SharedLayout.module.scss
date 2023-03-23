@@ -1,8 +1,16 @@
 @use 'assets/sass/mixins' as mixin;
 
 .header {
-  margin-bottom: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
   padding: 10px 0;
+  width: 100%;
+
+  background-color: var(--background-color-primary);
+  box-shadow: 0 0 1px var(--text-color-primary);
 }
 
 .container {
@@ -39,8 +47,9 @@
   transition: color 250ms var(--transition-function-primary);
 
   &:hover,
-  &:active {
+  &:focus {
     color: var(--color-accent);
+    outline: none;
   }
 
   @include mixin.tablet {

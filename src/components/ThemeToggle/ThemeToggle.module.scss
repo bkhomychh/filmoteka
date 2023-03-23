@@ -15,7 +15,14 @@
 }
 
 .icon {
+  transition: color 250ms var(--transition-function-primary);
   animation: appear 500ms both var(--transition-function-primary);
+
+  &:hover,
+  &:focus {
+    color: var(--color-accent);
+    outline: none;
+  }
 }
 
 @keyframes appear {

@@ -58,8 +58,10 @@
   transition: color 250ms var(--transition-function-primary);
 
   &:hover,
+  &:focus,
   &:global(.active) {
     color: var(--color-accent);
+    outline: none;
   }
 
   svg {

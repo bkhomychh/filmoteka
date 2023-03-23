@@ -30,6 +30,7 @@ const Trailer = ({ movieKey }) => {
         allowFullScreen
         title="trailer"
         onLoad={hideSpinner}
+        controls={false}
       ></iframe>
     </>
   );
