@@ -1,0 +1,34 @@
+{
+	"home": {
+		"title": "Główny",
+		"additional_genre": {
+			"trending": "trendy"
+		}
+	},
+	"search": {
+		"title": "Szukaj",
+		"message": {
+			"failure": "Przepraszamy, ale nie mogłem znaleźć filmów, o które prosiłeś :(",
+			"error": "Ups! Coś poszło nie tak :("
+		}
+	},
+	"bookmarks": {
+		"title": "Zakładki",
+		"message": {
+			"empty": "Niestety, nie ma jeszcze zapisanych filmów..."
+		}
+	},
+	"movieDetails": {
+		"overview": "Przegląd",
+		"releaseDate": "Data wydania",
+		"trailer": "Przyczepa",
+		"bookmarkBtn": {
+			"add": "Dodaj do zakładek",
+			"remove": "Usuń z zakładek"
+		}
+	},
+	"common": {
+		"backLink": "Z powrotem",
+		"sign": "Zrobione przez"
+	}
+}

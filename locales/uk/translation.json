@@ -1,0 +1,34 @@
+{
+  "home": {
+    "title": "Головна",
+    "additional_genre": {
+      "trending": "Популярне"
+    }
+  },
+  "search": {
+    "title": "Пошук",
+    "message": {
+      "failure": "Вибачте, не вдалося знайти фільми по вашому запиту :(",
+      "error": "Ой, щось пішло не так :("
+    }
+  },
+  "bookmarks": {
+    "title": "Закладки",
+    "message": {
+      "empty": "На жаль, ще немає збережених фільмів..."
+    }
+  },
+  "movieDetails": {
+    "overview": "Огляд",
+    "releaseDate": "Дата виходу",
+    "trailer": "Трейлер",
+    "bookmarkBtn": {
+      "add": "Додати до закладок",
+      "remove": "Видалити із закладок"
+    }
+  },
+  "common": {
+    "backLink": "Назад",
+    "sign": "Зроблено"
+  }
+}
