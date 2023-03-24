@@ -6,16 +6,19 @@ import { useTranslation } from 'react-i18next';
 
 const Home = () => {
   const [genres, setGenres] = useState([]);
-  const { t } = useTranslation();
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation();
 
   const TRENDING = t('home.additional_genre.trending');
 
   useEffect(() => {
-    getGenreList().then(res => {
+    getGenreList(language).then(res => {
       const newGenres = res.map(genre => genre);
       setGenres(newGenres);
     });
-  }, []);
+  }, [language]);
 
   return (
     <>

@@ -22,7 +22,10 @@ import { useTranslation } from 'react-i18next';
 const MovieCarousel = ({ genre: { name, id } }) => {
   const [status, setStatus] = useState(STATUS.IDLE);
   const [movies, setMovies] = useState([]);
-  const { t } = useTranslation();
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation();
 
   const TRENDING = t('home.additional_genre.trending');
 
@@ -69,7 +72,7 @@ const MovieCarousel = ({ genre: { name, id } }) => {
     setStatus(STATUS.PENDING);
 
     if (name === TRENDING) {
-      getTrendingMovies()
+      getTrendingMovies(language)
         .then(res => {
           setMovies(res);
           setStatus(STATUS.RESOLVED);
@@ -81,7 +84,7 @@ const MovieCarousel = ({ genre: { name, id } }) => {
       return;
     }
 
-    getMoviesByGenre(id)
+    getMoviesByGenre(id, language)
       .then(res => {
         setMovies(res);
         setStatus(STATUS.RESOLVED);
@@ -90,7 +93,7 @@ const MovieCarousel = ({ genre: { name, id } }) => {
         console.log(err);
         setStatus(STATUS.REJECTED);
       });
-  }, [name, id, inView]);
+  }, [name, id, inView, TRENDING, language]);
 
   return (
     <div className={styles.wrapper}>

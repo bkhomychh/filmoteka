@@ -18,7 +18,17 @@
 			"empty": "Niestety, nie ma jeszcze zapisanych filmów..."
 		}
 	},
+	"movieDetails": {
+		"overview": "Przegląd",
+		"releaseDate": "Data wydania",
+		"trailer": "Przyczepa",
+		"bookmarkBtn": {
+			"add": "Dodaj do zakładek",
+			"remove": "Usuń z zakładek"
+		}
+	},
 	"common": {
+		"backLink": "Z powrotem",
 		"sign": "Zrobione przez"
 	}
 }

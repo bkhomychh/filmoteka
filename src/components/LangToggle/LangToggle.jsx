@@ -22,7 +22,7 @@ const LangToggle = () => {
   return (
     <select onChange={handleChange} value={i18n.language}>
       <option value="en">English</option>
-      <option value="ua">Українська</option>
+      <option value="uk">Українська</option>
       <option value="pl">Polski</option>
     </select>
   );

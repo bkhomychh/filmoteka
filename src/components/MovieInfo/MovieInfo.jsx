@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
-import { AiFillStar } from 'react-icons/ai';
-import { BsPlayCircle } from 'react-icons/bs';
 import Button from 'components/Button';
 import BookmarkButton from 'components/BookmarkButton';
 import Modal from 'components/Modal';
@@ -16,6 +15,8 @@ import {
   saveDataToLocalStorage,
 } from 'services/localStorage';
 
+import { AiFillStar } from 'react-icons/ai';
+import { BsPlayCircle } from 'react-icons/bs';
 import imagePlaceHolder from 'assets/images/image-place-holder.png';
 import styles from './MovieInfo.module.scss';
 
@@ -29,6 +30,7 @@ const MovieInfo = ({ movie }) => {
     release_date,
     vote_average,
   } = movie;
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [movieKey, setMovieKey] = useState('');
   const [isSaved, setIsSaved] = useState(() => {
@@ -37,12 +39,16 @@ const MovieInfo = ({ movie }) => {
 
     return movies.some(movie => movie.id === id);
   });
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation();
 
   useEffect(() => {
-    getVideos(id)
+    getVideos(id, language)
       .then(res => setMovieKey(res[0]?.key))
       .catch(err => console.log(err));
-  }, [id]);
+  }, [id, language]);
 
   const addToBookmarks = () => {
     const data = getDataFromLocalStorage('movies');
@@ -86,17 +92,17 @@ const MovieInfo = ({ movie }) => {
           <p className={styles.genre}>
             {genres.map(genre => genre.name).join(', ')}
           </p>
-          <h2 className={styles.heading}>Overview:</h2>
+          <h2 className={styles.heading}>{t('movieDetails.overview')}:</h2>
           <p className={styles.overview}>{overview}</p>
           <h2 className={styles.date}>
-            Release date:
+            {t('movieDetails.releaseDate')}:
             <span>{formatDate(release_date)}</span>
           </h2>
 
           <div className={styles.box}>
             {movieKey && (
               <Button handleClick={toggleModal}>
-                Trailer <BsPlayCircle />
+                {t('movieDetails.trailer')} <BsPlayCircle />
               </Button>
             )}
             <BookmarkButton

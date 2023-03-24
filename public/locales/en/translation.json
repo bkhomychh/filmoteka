@@ -18,7 +18,17 @@
       "empty": "Unfortunately, there are no saved movies yet..."
     }
   },
+  "movieDetails": {
+    "overview": "Overview",
+    "releaseDate": "Release date",
+    "trailer": "Trailer",
+    "bookmarkBtn": {
+      "add": "Add to bookmarks",
+      "remove": "Remove from bookmarks"
+    }
+  },
   "common": {
+    "backLink": "Back",
     "sign": "Made by"
   }
 }
