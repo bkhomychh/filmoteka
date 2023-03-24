@@ -11,6 +11,7 @@ i18next
     fallbackLng: 'en',
     debug: true,
     backend: {
-      loadPath: 'filmoteka/locales/{{lng}}/{{ns}}.json',
+      // loadPath: 'filmoteka/locales/{{lng}}/{{ns}}.json',
+      loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
   });
