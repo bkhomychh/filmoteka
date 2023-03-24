@@ -15,7 +15,7 @@ const LangToggle = () => {
   useEffect(() => {}, []);
 
   const handleChange = ({ target }) => {
-    console.log(target.value);
+    console.log(i18n.language);
     i18n.changeLanguage(target.value);
   };
 
