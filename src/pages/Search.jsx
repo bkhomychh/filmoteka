@@ -17,7 +17,10 @@ const Search = () => {
   const [searchParamas, setSearchParamas] = useSearchParams();
   const searchQuery = searchParamas.get('query');
 
-  const { t } = useTranslation();
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation();
 
   useEffect(() => {
     if (!searchQuery) {
@@ -35,21 +38,18 @@ const Search = () => {
     };
 
     setStatus(STATUS.PENDING);
-    getMoviesBySearchQuery(searchQuery)
+    getMoviesBySearchQuery(searchQuery, language)
       .then(res => {
         setMovies(res);
         setStatus(STATUS.RESOLVED);
         res.length < 1 &&
-          toast.error(
-            `Sorry, I couldn't find the movies you requested :(`,
-            noticeOptions
-          );
+          toast.error(t('search.message.failure'), noticeOptions);
       })
       .catch(err => {
         toast.error(err.message, noticeOptions);
         setStatus(STATUS.REJECTED);
       });
-  }, [searchQuery]);
+  }, [searchQuery, t, language]);
 
   const updateQueryString = query => {
     const newParams = query ? { query } : {};

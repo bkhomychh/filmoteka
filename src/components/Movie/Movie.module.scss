@@ -2,6 +2,8 @@
 
 .link {
   position: relative;
+  min-height: 150px;
+  max-height: 500px;
 
   overflow: hidden;
 
@@ -10,11 +12,17 @@
       transform: scale(1.05);
     }
   }
+
+  @include mixin.tablet {
+    min-height: 200px;
+  }
 }
 
 .poster {
-  min-height: 200px;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
+  object-position: 50% 30%;
 
   transition: transform 250ms var(--transition-function-primary);
 
