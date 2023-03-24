@@ -20,4 +20,19 @@ const STATUS = {
   RESOLVED: 'resolved',
 };
 
-export { BASE_URL, IMAGE_BASE_URL, API_KEY, RESOURCE, STATUS };
+const LANGUAGE = {
+  EN: {
+    original: 'English',
+    short: 'en',
+  },
+  UK: {
+    original: 'Українська',
+    short: 'uk',
+  },
+  PL: {
+    original: 'Polski',
+    short: 'pl',
+  },
+};
+
+export { BASE_URL, IMAGE_BASE_URL, API_KEY, RESOURCE, STATUS, LANGUAGE };

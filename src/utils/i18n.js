@@ -6,18 +6,21 @@ import translationEN from '../locales/en/translation.json';
 import translationUK from '../locales/uk/translation.json';
 import translationPL from '../locales/pl/translation.json';
 
+import { LANGUAGE } from 'utils/constants';
+
 i18next
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: 'en',
+    fallbackLng: LANGUAGE.EN.short,
+    debug: true,
     interpolation: {
       escapeValue: false,
     },
     resources: {
-      en: { translation: translationEN },
-      uk: { translation: translationUK },
-      pl: { translation: translationPL },
+      [LANGUAGE.EN.short]: { translation: translationEN },
+      [LANGUAGE.UK.short]: { translation: translationUK },
+      [LANGUAGE.PL.short]: { translation: translationPL },
     },
   });
 

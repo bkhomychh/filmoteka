@@ -6,9 +6,9 @@
 
   line-height: 1;
   font-weight: 500;
-  color: var(--color-accent);
+  color: var(--text-color-primary);
   background-color: transparent;
-  border: 1px solid var(--color-accent);
+  border: 2px solid currentColor;
   border-radius: 10px;
 
   transition: color 250ms var(--transition-function-primary),
@@ -16,7 +16,6 @@
 
   &:hover,
   &:focus {
-    color: var(--background-color-primary);
-    background-color: var(--color-accent);
+    color: var(--color-accent);
   }
 }
