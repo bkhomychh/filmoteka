@@ -1,6 +1,5 @@
 import { Suspense, useEffect } from 'react';
 import { Outlet, Link } from 'react-router-dom';
-import { BiMoviePlay } from 'react-icons/bi';
 
 import styles from './SharedLayout.module.scss';
 import Navbar from 'components/Navbar';
@@ -11,12 +10,18 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import SimpleBar from 'simplebar';
-import 'simplebar/dist/simplebar.css';
+import LangToggle from 'components/LangToggle';
+
 import { BsGithub } from 'react-icons/bs';
+import { BiMoviePlay } from 'react-icons/bi';
+import 'simplebar/dist/simplebar.css';
+import { useTranslation } from 'react-i18next';
 
 const rootContainer = document.getElementById('root');
 
 const SharedLayout = () => {
+  const { t } = useTranslation();
+
   useEffect(() => {
     if (rootContainer.hasAttribute('data-simplebar')) {
       return;
@@ -35,6 +40,7 @@ const SharedLayout = () => {
           </Link>
           <Navbar />
           <ThemeToggle />
+          <LangToggle />
         </div>
       </header>
       <main className={styles.main}>
@@ -47,7 +53,7 @@ const SharedLayout = () => {
       <footer className={styles.footer}>
         <div className={styles.container}>
           <p className={styles.mark}>
-            <span>Made by </span>&nbsp;
+            <span>{t('common.sign')}</span>&nbsp;
             <a
               href="https://github.com/bkhomychh"
               target="_blank"

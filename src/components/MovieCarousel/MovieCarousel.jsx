@@ -13,14 +13,19 @@ import Movie from 'components/Movie/Movie';
 import PageLoader from 'components/PageLoader';
 
 import { getTrendingMovies, getMoviesByGenre } from 'services/moviesAPI';
-import { GENRE, STATUS } from 'utils/constants';
+import { STATUS } from 'utils/constants';
 
 import styles from './MovieCarousel.module.scss';
 import { BsFire } from 'react-icons/bs';
+import { useTranslation } from 'react-i18next';
 
 const MovieCarousel = ({ genre: { name, id } }) => {
   const [status, setStatus] = useState(STATUS.IDLE);
   const [movies, setMovies] = useState([]);
+  const { t } = useTranslation();
+
+  const TRENDING = t('home.additional_genre.trending');
+
   const sliderOptions = {
     slidesPerView: 3,
     spaceBetween: 20,
@@ -36,7 +41,7 @@ const MovieCarousel = ({ genre: { name, id } }) => {
     },
   };
 
-  if (name === GENRE.TRENDING) {
+  if (name === TRENDING) {
     sliderOptions.slidesPerView = 1;
     sliderOptions.breakpoints = {
       768: {
@@ -63,7 +68,7 @@ const MovieCarousel = ({ genre: { name, id } }) => {
 
     setStatus(STATUS.PENDING);
 
-    if (name === GENRE.TRENDING) {
+    if (name === TRENDING) {
       getTrendingMovies()
         .then(res => {
           setMovies(res);
@@ -91,7 +96,7 @@ const MovieCarousel = ({ genre: { name, id } }) => {
     <div className={styles.wrapper}>
       <h2 className={styles.genre} ref={ref}>
         {name}
-        {name === GENRE.TRENDING && <BsFire className={styles.icon} />}
+        {name === TRENDING && <BsFire className={styles.icon} />}
       </h2>
       {status === STATUS.PENDING && <PageLoader />}
       {status === STATUS.RESOLVED && movies.length > 0 && (

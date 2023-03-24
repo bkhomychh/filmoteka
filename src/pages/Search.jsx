@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import SearchForm from 'components/SearchForm/';
 import MovieList from 'components/MovieList';
@@ -15,6 +16,8 @@ const Search = () => {
   const [movies, setMovies] = useState([]);
   const [searchParamas, setSearchParamas] = useSearchParams();
   const searchQuery = searchParamas.get('query');
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (!searchQuery) {
@@ -55,16 +58,16 @@ const Search = () => {
 
   return (
     <>
-      <h1>Search</h1>
+      <h1>{t('search.title')}</h1>
       <SearchForm updateQueryString={updateQueryString} />
       {status === STATUS.PENDING && <MovieLoaderList />}
       {status === STATUS.RESOLVED && movies.length > 0 && (
         <MovieList movies={movies} />
       )}
       {status === STATUS.RESOLVED && Number(movies.length) === 0 && (
-        <p>Sorry, I couldn't find the movies you requested :(</p>
+        <p>{t('search.message.failure')}</p>
       )}
-      {status === STATUS.REJECTED && <p>Oops, something went wrong :(</p>}
+      {status === STATUS.REJECTED && <p>{t('search.message.error')}</p>}
     </>
   );
 };

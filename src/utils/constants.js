@@ -13,19 +13,6 @@ const RESOURCE = {
   movieReviews: id => `movie/${id}/reviews`,
 };
 
-const GENRE = {
-  ACTION: 'action',
-  ANIMATION: 'animation',
-  COMEDY: 'comedy',
-  CRIME: 'crime',
-  DOCUMENTARY: 'documentary',
-  FANTASY: 'fantasy',
-  HORROR: 'horror',
-  THRILLER: 'thriller',
-  TRENDING: 'trending',
-  WESTERN: 'western',
-};
-
 const STATUS = {
   IDLE: 'idle',
   PENDING: 'pending',
@@ -33,4 +20,4 @@ const STATUS = {
   RESOLVED: 'resolved',
 };
 
-export { BASE_URL, IMAGE_BASE_URL, API_KEY, RESOURCE, GENRE, STATUS };
+export { BASE_URL, IMAGE_BASE_URL, API_KEY, RESOURCE, STATUS };

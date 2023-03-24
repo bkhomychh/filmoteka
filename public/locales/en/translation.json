@@ -1,0 +1,24 @@
+{
+  "home": {
+    "title": "Home",
+    "additional_genre": {
+      "trending": "trending"
+    }
+  },
+  "search": {
+    "title": "Search",
+    "message": {
+      "failure": "Sorry, I couldn't find the movies you requested :(",
+      "error": "Oops, something went wrong :("
+    }
+  },
+  "bookmarks": {
+    "title": "Bookmarks",
+    "message": {
+      "empty": "Unfortunately, there are no saved movies yet..."
+    }
+  },
+  "common": {
+    "sign": "Made by"
+  }
+}

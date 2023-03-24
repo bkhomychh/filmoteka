@@ -2,10 +2,13 @@ import { useEffect, useState } from 'react';
 
 import MovieCarousel from 'components/MovieCarousel';
 import { getGenreList } from 'services/moviesAPI';
-import { GENRE } from 'utils/constants';
+import { useTranslation } from 'react-i18next';
 
 const Home = () => {
   const [genres, setGenres] = useState([]);
+  const { t } = useTranslation();
+
+  const TRENDING = t('home.additional_genre.trending');
 
   useEffect(() => {
     getGenreList().then(res => {
@@ -16,7 +19,7 @@ const Home = () => {
 
   return (
     <>
-      <MovieCarousel genre={{ name: GENRE.TRENDING }} />
+      <MovieCarousel genre={{ name: TRENDING }} />
       {genres.length > 0 &&
         genres.map(genre => <MovieCarousel key={genre.id} genre={genre} />)}
     </>

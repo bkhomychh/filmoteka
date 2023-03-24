@@ -1,0 +1,24 @@
+{
+	"home": {
+		"title": "Główny",
+		"additional_genre": {
+			"trending": "trendy"
+		}
+	},
+	"search": {
+		"title": "Szukaj",
+		"message": {
+			"failure": "Przepraszamy, ale nie mogłem znaleźć filmów, o które prosiłeś :(",
+			"error": "Ups! Coś poszło nie tak :("
+		}
+	},
+	"bookmarks": {
+		"title": "Zakładki",
+		"message": {
+			"empty": "Niestety, nie ma jeszcze zapisanych filmów..."
+		}
+	},
+	"common": {
+		"sign": "Zrobione przez"
+	}
+}
