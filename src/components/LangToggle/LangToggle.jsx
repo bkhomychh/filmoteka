@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { BiSun, BiMoon } from 'react-icons/bi';
-import {
-  saveDataToLocalStorage,
-  getDataFromLocalStorage,
-} from 'services/localStorage';
+// import { BiSun, BiMoon } from 'react-icons/bi';
+// import {
+//   saveDataToLocalStorage,
+//   getDataFromLocalStorage,
+// } from 'services/localStorage';
 
-import styles from './LangToggle.module.scss';
+// import styles from './LangToggle.module.scss';
 
 const LangToggle = () => {
   const { i18n } = useTranslation();
