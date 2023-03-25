@@ -55,27 +55,30 @@ const Cast = () => {
 
   return (
     <>
-      {cast && (
-        <Swiper className={styles.wrapper} {...sliderOptions}>
-          {cast.map(({ id, name, profile_path, character }) => {
-            const imgUrl = profile_path
-              ? IMAGE_BASE_URL + profile_path
-              : defaultImg;
+      {cast &&
+        (cast.length > 0 ? (
+          <Swiper className={styles.wrapper} {...sliderOptions}>
+            {cast.map(({ id, name, profile_path, character }) => {
+              const imgUrl = profile_path
+                ? IMAGE_BASE_URL + profile_path
+                : defaultImg;
 
-            return (
-              <SwiperSlide key={id}>
-                <div className={styles.thumb}>
-                  <img className={styles.img} src={imgUrl} alt={name} />
-                </div>
-                <p className={styles.name}>{name}</p>
-                <p className={styles.character}>
-                  <span>Character:</span> {character}
-                </p>
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
-      )}
+              return (
+                <SwiperSlide key={id}>
+                  <div className={styles.thumb}>
+                    <img className={styles.img} src={imgUrl} alt={name} />
+                  </div>
+                  <p className={styles.name}>{name}</p>
+                  <p className={styles.character}>
+                    <span>Character:</span> {character}
+                  </p>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        ) : (
+          <p>Unfortunately, there is no information about cast.</p>
+        ))}
     </>
   );
 };

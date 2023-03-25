@@ -1,6 +1,8 @@
 @use 'assets/sass/mixins' as mixin;
 
 .wrapper {
+  margin-bottom: 10px;
+
   @include mixin.tablet {
     display: flex;
     justify-content: flex-start;
@@ -105,4 +107,53 @@
 .box {
   display: flex;
   gap: 20px;
+}
+
+.additionalInfo {
+  .heading {
+    margin-bottom: 10px;
+  }
+}
+
+.links {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @include mixin.tablet {
+    margin-bottom: 15px;
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  font-size: 18px;
+  font-weight: 500;
+
+  transition: color 250ms var(--transition-function-primary);
+
+  &:hover,
+  &:focus,
+  &:global(.active) {
+    color: var(--color-accent);
+  }
+
+  &::before {
+    content: '';
+
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+    background-color: currentColor;
+  }
+
+  @include mixin.tablet {
+    font-size: 20px;
+  }
 }

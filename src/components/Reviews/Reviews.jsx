@@ -41,25 +41,28 @@ const Reviews = () => {
 
   return (
     <>
-      {reviews && (
-        <Swiper className={styles.wrapper} {...sliderOptions}>
-          {reviews.map(({ id, author, content, created_at, url }) => (
-            <SwiperSlide key={id}>
-              <p className={styles.author}>{author}</p>
-              <p className={styles.content}>{cutString(content)}</p>
-              <a
-                className={styles.link}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-              >
-                Read more
-              </a>
-              <p className={styles.releaseDate}>{formatDate(created_at)}</p>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      )}
+      {reviews &&
+        (reviews.length > 0 ? (
+          <Swiper className={styles.wrapper} {...sliderOptions}>
+            {reviews.map(({ id, author, content, created_at, url }) => (
+              <SwiperSlide key={id}>
+                <p className={styles.author}>{author}</p>
+                <p className={styles.content}>{cutString(content)}</p>
+                <a
+                  className={styles.link}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                >
+                  Read more
+                </a>
+                <p className={styles.releaseDate}>{formatDate(created_at)}</p>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        ) : (
+          <p>Unfortunately, there are no reviews yet.</p>
+        ))}
     </>
   );
 };

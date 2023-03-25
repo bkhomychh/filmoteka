@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
@@ -6,6 +6,7 @@ import Button from 'components/Button';
 import BookmarkButton from 'components/BookmarkButton';
 import Modal from 'components/Modal';
 import Trailer from 'components/Trailer';
+import PageLoader from 'components/PageLoader';
 
 import { getVideos } from 'services/moviesAPI';
 import { IMAGE_BASE_URL } from 'utils/constants';
@@ -19,7 +20,7 @@ import { AiFillStar } from 'react-icons/ai';
 import { BsPlayCircle } from 'react-icons/bs';
 import imagePlaceHolder from 'assets/images/image-place-holder.png';
 import styles from './MovieInfo.module.scss';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 
 const MovieInfo = ({ movie }) => {
   const {
@@ -40,6 +41,8 @@ const MovieInfo = ({ movie }) => {
 
     return movies.some(movie => movie.id === id);
   });
+
+  const location = useLocation();
   const {
     t,
     i18n: { language },
@@ -124,13 +127,27 @@ const MovieInfo = ({ movie }) => {
         <h2 className={styles.heading}>Additional information:</h2>
         <ul className={styles.links}>
           <li>
-            <NavLink to="cast">Cast</NavLink>
+            <NavLink
+              className={styles.link}
+              to="cast"
+              state={{ from: location.state.from }}
+            >
+              Cast
+            </NavLink>
           </li>
           <li>
-            <NavLink to="reviews">Reviews</NavLink>
+            <NavLink
+              className={styles.link}
+              to="reviews"
+              state={{ from: location.state.from }}
+            >
+              Reviews
+            </NavLink>
           </li>
         </ul>
-        <Outlet />
+        <Suspense fallback={<PageLoader />}>
+          <Outlet />
+        </Suspense>
       </div>
     </>
   );
