@@ -130,7 +130,7 @@ const MovieInfo = ({ movie }) => {
             <NavLink
               className={styles.link}
               to="cast"
-              state={{ from: location.state.from }}
+              state={{ from: location.state?.from }}
             >
               {t('cast.title')}
             </NavLink>
@@ -139,7 +139,7 @@ const MovieInfo = ({ movie }) => {
             <NavLink
               className={styles.link}
               to="reviews"
-              state={{ from: location.state.from }}
+              state={{ from: location.state?.from }}
             >
               {t('reviews.title')}
             </NavLink>
