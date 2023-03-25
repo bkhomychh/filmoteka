@@ -19,6 +19,7 @@ import { AiFillStar } from 'react-icons/ai';
 import { BsPlayCircle } from 'react-icons/bs';
 import imagePlaceHolder from 'assets/images/image-place-holder.png';
 import styles from './MovieInfo.module.scss';
+import { NavLink, Outlet } from 'react-router-dom';
 
 const MovieInfo = ({ movie }) => {
   const {
@@ -118,6 +119,18 @@ const MovieInfo = ({ movie }) => {
             </Modal>
           )}
         </div>
+      </div>
+      <div className={styles.additionalInfo}>
+        <h2 className={styles.heading}>Additional information:</h2>
+        <ul className={styles.links}>
+          <li>
+            <NavLink to="cast">Cast</NavLink>
+          </li>
+          <li>
+            <NavLink to="reviews">Reviews</NavLink>
+          </li>
+        </ul>
+        <Outlet />
       </div>
     </>
   );

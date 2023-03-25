@@ -9,7 +9,7 @@ const BackLink = () => {
   const { t } = useTranslation();
 
   return (
-    <Link className={styles.link} to={location.state.from}>
+    <Link className={styles.link} to={location.state?.from || '/'}>
       <FaArrowLeft />
       <span>{t('common.backLink')}</span>
     </Link>

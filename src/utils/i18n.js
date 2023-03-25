@@ -9,7 +9,6 @@ import { LANGUAGE } from 'utils/constants';
 
 i18next.use(initReactI18next).init({
   fallbackLng: LANGUAGE.EN.short,
-  debug: true,
   interpolation: {
     escapeValue: false,
   },

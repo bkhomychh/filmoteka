@@ -25,3 +25,19 @@ div.swiper-button-next {
     }
   }
 }
+
+div.swiper-pagination {
+  .swiper-pagination-bullet {
+    background-color: var(--color-accent);
+
+    opacity: 0.4;
+
+    transition: background-color 250ms var(--transition-function-primary),
+      opacity 250ms var(--transition-function-primary);
+
+    &-active {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+  }
+}
