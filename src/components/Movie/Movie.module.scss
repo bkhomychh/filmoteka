@@ -2,6 +2,9 @@
 
 .link {
   position: relative;
+
+  display: flex;
+  justify-content: center;
   min-height: 150px;
   max-height: 500px;
 
@@ -19,10 +22,7 @@
 }
 
 .poster {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  object-position: 50% 30%;
+  max-height: 50vh;
 
   transition: transform 250ms var(--transition-function-primary);
 

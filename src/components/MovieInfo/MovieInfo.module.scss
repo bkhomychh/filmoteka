@@ -11,6 +11,7 @@
 
 .poster {
   margin: 0 auto 10px;
+  max-height: 50vh;
 
   @include mixin.tablet {
     margin: 0 20px 10px 0;

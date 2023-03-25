@@ -29,6 +29,12 @@
 
   background-color: var(--background-color-primary);
   box-shadow: 0 0 1px var(--text-color-primary);
+
+  @include mixin.tablet {
+    position: relative;
+
+    margin-bottom: 10px;
+  }
 }
 
 .main {

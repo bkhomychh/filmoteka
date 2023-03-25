@@ -3,10 +3,6 @@ import { LANGUAGE } from 'utils/constants';
 import Button from 'components/Button';
 
 import { MdKeyboardArrowDown } from 'react-icons/md';
-// import {
-//   saveDataToLocalStorage,
-//   getDataFromLocalStorage,
-// } from 'services/localStorage';
 
 import styles from './LangToggle.module.scss';
 import { useState } from 'react';
@@ -21,6 +17,7 @@ const LangToggle = () => {
 
   const toggleLangList = () => {
     setIsLangListShown(state => !state);
+
     if (!isLangListShown) {
       setTimeout(() => {
         window.addEventListener('click', hideLangList, { once: true });
@@ -31,6 +28,7 @@ const LangToggle = () => {
   const changeCurrentLang = ({ target }) => {
     const newLang = target.dataset.lang;
     i18n.changeLanguage(newLang);
+    localStorage.setItem('lang', newLang);
     hideLangList();
   };
 

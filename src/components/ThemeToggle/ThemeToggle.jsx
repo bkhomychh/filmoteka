@@ -9,8 +9,8 @@ import styles from './ThemeToggle.module.scss';
 
 const ThemeToggle = () => {
   const [isLight, setIsLight] = useState(() => {
-    const data = getDataFromLocalStorage('theme');
-    return data?.light ?? false;
+    const theme = getDataFromLocalStorage('theme');
+    return theme?.light ?? false;
   });
 
   useEffect(() => {
