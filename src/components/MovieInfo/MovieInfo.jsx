@@ -124,7 +124,7 @@ const MovieInfo = ({ movie }) => {
         </div>
       </div>
       <div className={styles.additionalInfo}>
-        <h2 className={styles.heading}>Additional information:</h2>
+        <h2 className={styles.heading}>{t('movieDetails.additionalInfo')}:</h2>
         <ul className={styles.links}>
           <li>
             <NavLink
@@ -132,7 +132,7 @@ const MovieInfo = ({ movie }) => {
               to="cast"
               state={{ from: location.state.from }}
             >
-              Cast
+              {t('cast.title')}
             </NavLink>
           </li>
           <li>
@@ -141,7 +141,7 @@ const MovieInfo = ({ movie }) => {
               to="reviews"
               state={{ from: location.state.from }}
             >
-              Reviews
+              {t('reviews.title')}
             </NavLink>
           </li>
         </ul>

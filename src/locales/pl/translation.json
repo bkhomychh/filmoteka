@@ -25,6 +25,21 @@
 		"bookmarkBtn": {
 			"add": "Dodaj do zakładek",
 			"remove": "Usuń z zakładek"
+		},
+		"additionalInfo": "Dodatkowe informacje"
+	},
+	"cast": {
+		"title": "Rzucać",
+		"character": "Postać",
+		"message": {
+			"failure": "Niestety nie ma informacji o obsadzie."
+		}
+	},
+	"reviews": {
+		"title": "Opinie",
+		"btnText": "Czytaj więcej",
+		"message": {
+			"failure": "Niestety nie ma jeszcze recenzji."
 		}
 	},
 	"common": {

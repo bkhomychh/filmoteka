@@ -25,6 +25,21 @@
     "bookmarkBtn": {
       "add": "Add to bookmarks",
       "remove": "Remove from bookmarks"
+    },
+    "additionalInfo": "Additional information"
+  },
+  "cast": {
+    "title": "Cast",
+    "character": "Character",
+    "message": {
+      "failure": "Unfortunately, there is no information about cast."
+    }
+  },
+  "reviews": {
+    "title": "Reviews",
+    "btnText": "Read more",
+    "message": {
+      "failure": "Unfortunately, there are no reviews yet."
     }
   },
   "common": {

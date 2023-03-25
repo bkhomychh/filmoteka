@@ -18,6 +18,7 @@ const Reviews = () => {
   const [reviews, setReviews] = useState(null);
   const { movieId } = useParams();
   const {
+    t,
     i18n: { language },
   } = useTranslation();
 
@@ -54,14 +55,14 @@ const Reviews = () => {
                   target="_blank"
                   rel="noopener noreferrer nofollow"
                 >
-                  Read more
+                  {t('reviews.btnText')}
                 </a>
                 <p className={styles.releaseDate}>{formatDate(created_at)}</p>
               </SwiperSlide>
             ))}
           </Swiper>
         ) : (
-          <p>Unfortunately, there are no reviews yet.</p>
+          <p>{t('reviews.message.failure')}</p>
         ))}
     </>
   );

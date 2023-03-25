@@ -20,6 +20,7 @@ const Cast = () => {
   const [cast, setCast] = useState(null);
   const { movieId } = useParams();
   const {
+    t,
     i18n: { language },
   } = useTranslation();
 
@@ -70,14 +71,14 @@ const Cast = () => {
                   </div>
                   <p className={styles.name}>{name}</p>
                   <p className={styles.character}>
-                    <span>Character:</span> {character}
+                    <span>{t('cast.character')}:</span> {character}
                   </p>
                 </SwiperSlide>
               );
             })}
           </Swiper>
         ) : (
-          <p>Unfortunately, there is no information about cast.</p>
+          <p>{t('cast.message.failure')}</p>
         ))}
     </>
   );
