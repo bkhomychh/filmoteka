@@ -1,5 +1,27 @@
 @use 'assets/sass/mixins' as mixin;
 
+div.swiper-slide {
+  height: auto;
+
+  overflow: hidden;
+}
+
+div.swiper-pagination {
+  .swiper-pagination-bullet {
+    background-color: var(--color-accent);
+
+    opacity: 0.4;
+
+    transition: background-color 250ms var(--transition-function-primary),
+      opacity 250ms var(--transition-function-primary);
+
+    &-active {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+  }
+}
+
 div.swiper-button-prev,
 div.swiper-button-next {
   padding: 15px 25px;
@@ -24,24 +46,4 @@ div.swiper-button-next {
       font-size: 30px;
     }
   }
-}
-
-div.swiper-pagination {
-  .swiper-pagination-bullet {
-    background-color: var(--color-accent);
-
-    opacity: 0.4;
-
-    transition: background-color 250ms var(--transition-function-primary),
-      opacity 250ms var(--transition-function-primary);
-
-    &-active {
-      transform: scale(1.1);
-      opacity: 1;
-    }
-  }
-}
-
-div.simplebar-content-wrapper {
-  height: 100%;
 }

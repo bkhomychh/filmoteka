@@ -4,6 +4,10 @@ div.simplebar-scrollbar {
   }
 }
 
+div.simplebar-content-wrapper {
+  height: 100%;
+}
+
 div.simplebar-content {
   display: flex;
   flex-direction: column;
