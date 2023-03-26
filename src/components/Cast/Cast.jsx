@@ -67,7 +67,12 @@ const Cast = () => {
               return (
                 <SwiperSlide key={id}>
                   <div className={styles.thumb}>
-                    <img className={styles.img} src={imgUrl} alt={name} />
+                    <img
+                      className={styles.img}
+                      src={imgUrl}
+                      alt={name}
+                      loading="lazy"
+                    />
                   </div>
                   <p className={styles.name}>{name}</p>
                   <p className={styles.character}>

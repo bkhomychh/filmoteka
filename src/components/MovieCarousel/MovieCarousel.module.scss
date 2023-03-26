@@ -21,6 +21,7 @@
 
   @include mixin.tablet {
     margin-bottom: 20px;
+    padding-top: 20px;
 
     font-size: 24px;
   }
@@ -54,6 +55,5 @@
 }
 
 .wrapper {
-  margin-bottom: 20px;
   min-height: 300px;
 }

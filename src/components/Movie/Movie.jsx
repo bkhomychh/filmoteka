@@ -24,7 +24,12 @@ const Movie = ({ movie, location }) => {
         to={`/search/${id}`}
         state={{ from: location }}
       >
-        <img className={styles.poster} src={imgUrl} alt={title} />
+        <img
+          className={styles.poster}
+          src={imgUrl}
+          alt={title}
+          loading="lazy"
+        />
         {isSaved && <FaBookmark className={styles.icon} />}
       </Link>
       <h3 className={styles.title}>{title}</h3>
