@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react';
-
 import MovieCarousel from 'components/MovieCarousel';
 import { getGenreList } from 'services/moviesAPI';
 import { useTranslation } from 'react-i18next';
 
+import { useQuery } from '@tanstack/react-query';
+
 const Home = () => {
-  const [genres, setGenres] = useState([]);
   const {
     t,
     i18n: { language },
@@ -13,18 +12,25 @@ const Home = () => {
 
   const TRENDING = t('home.additional_genre.trending');
 
-  useEffect(() => {
-    getGenreList(language).then(res => {
-      const newGenres = res.map(genre => genre);
-      setGenres(newGenres);
-    });
-  }, [language]);
+  const { data } = useQuery({
+    queryKey: ['genres'],
+    queryFn: () => {
+      return getGenreList(language);
+    },
+
+    refetchInterval: 5 * 60 * 1000,
+    keepPreviousData: true,
+
+    onSuccess: data => {
+      console.log(data);
+    },
+  });
 
   return (
     <>
       <MovieCarousel genre={{ name: TRENDING }} />
-      {genres.length > 0 &&
-        genres.map(genre => <MovieCarousel key={genre.id} genre={genre} />)}
+      {data?.length > 0 &&
+        data.map(genre => <MovieCarousel key={genre.id} genre={genre} />)}
     </>
   );
 };
