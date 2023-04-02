@@ -1,12 +1,11 @@
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { IoHome } from 'react-icons/io5';
 import { GoSearch } from 'react-icons/go';
 import { FaBookmark } from 'react-icons/fa';
 
 import styles from './Navbar.module.scss';
-
-import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
   const { t } = useTranslation();

@@ -24,6 +24,7 @@ const Cast = () => {
     i18n: { language },
   } = useTranslation();
 
+  // fetching data
   useEffect(() => {
     getMovieCredits(movieId, language)
       .then(res => setCast(res))

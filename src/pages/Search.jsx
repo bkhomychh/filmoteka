@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import SearchForm from 'components/SearchForm/';
 import MovieList from 'components/MovieList';
-import MovieLoaderList from 'components/MovieLoaderList';
+import PageLoader from 'components/PageLoader';
 import { getMoviesBySearchQuery } from 'services/moviesAPI';
 import { STATUS } from 'utils/constants';
 
@@ -14,8 +14,8 @@ import 'react-toastify/dist/ReactToastify.css';
 const Search = () => {
   const [status, setStatus] = useState(STATUS.IDLE);
   const [movies, setMovies] = useState([]);
-  const [searchParamas, setSearchParamas] = useSearchParams();
-  const searchQuery = searchParamas.get('query');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchQuery = searchParams.get('query');
 
   const {
     t,
@@ -53,14 +53,14 @@ const Search = () => {
 
   const updateQueryString = query => {
     const newParams = query ? { query } : {};
-    setSearchParamas(newParams);
+    setSearchParams(newParams);
   };
 
   return (
     <>
       <h1>{t('search.title')}</h1>
       <SearchForm updateQueryString={updateQueryString} />
-      {status === STATUS.PENDING && <MovieLoaderList />}
+      {status === STATUS.PENDING && <PageLoader />}
       {status === STATUS.RESOLVED && movies.length > 0 && (
         <MovieList movies={movies} />
       )}

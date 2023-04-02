@@ -1,12 +1,11 @@
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
-import { FaBookmark } from 'react-icons/fa';
-import { AiFillStar } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 import { getDataFromLocalStorage } from 'services/localStorage';
 import { IMAGE_BASE_URL } from 'utils/constants';
 
+import { FaBookmark } from 'react-icons/fa';
+import { AiFillStar } from 'react-icons/ai';
 import imagePlaceHolder from 'assets/images/image-place-holder.png';
 import styles from './Movie.module.scss';
 

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { LANGUAGE } from 'utils/constants';
 import Button from 'components/Button';
@@ -5,7 +6,6 @@ import Button from 'components/Button';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 
 import styles from './LangToggle.module.scss';
-import { useState } from 'react';
 
 const LangToggle = () => {
   const [isLangListShown, setIsLangListShown] = useState(false);
@@ -18,6 +18,7 @@ const LangToggle = () => {
   const toggleLangList = () => {
     setIsLangListShown(state => !state);
 
+    // adding an event listener to hide the language list on click
     if (!isLangListShown) {
       setTimeout(() => {
         window.addEventListener('click', hideLangList, { once: true });

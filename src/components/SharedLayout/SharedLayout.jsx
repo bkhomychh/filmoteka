@@ -1,21 +1,21 @@
 import { Suspense, useEffect } from 'react';
 import { Outlet, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-import styles from './SharedLayout.module.scss';
 import Navbar from 'components/Navbar';
 import ThemeToggle from 'components/ThemeToggle';
 import PageLoader from 'components/PageLoader';
+import LangToggle from 'components/LangToggle';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import SimpleBar from 'simplebar';
-import LangToggle from 'components/LangToggle';
+import 'simplebar/dist/simplebar.css';
 
 import { BsGithub } from 'react-icons/bs';
 import { BiMoviePlay } from 'react-icons/bi';
-import 'simplebar/dist/simplebar.css';
-import { useTranslation } from 'react-i18next';
+import styles from './SharedLayout.module.scss';
 
 const rootContainer = document.getElementById('root');
 

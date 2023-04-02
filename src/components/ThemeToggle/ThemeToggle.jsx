@@ -13,6 +13,7 @@ const ThemeToggle = () => {
     return theme?.light ?? false;
   });
 
+  // toggling body classes
   useEffect(() => {
     if (isLight) {
       document.body.classList.remove('dark');

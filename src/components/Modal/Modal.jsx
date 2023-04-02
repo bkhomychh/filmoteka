@@ -8,6 +8,7 @@ const modalRoot = document.getElementById('modal-root');
 
 const Modal = ({ closeModal, children }) => {
   useEffect(() => {
+    // closing the modal window after pressing Escape
     const handleKeyDown = evt => {
       if (evt.code === 'Escape') {
         closeModal();
@@ -23,6 +24,7 @@ const Modal = ({ closeModal, children }) => {
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('click', handleClick);
 
+    // removing event listeners after unmounting
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('click', handleClick);
@@ -33,7 +35,6 @@ const Modal = ({ closeModal, children }) => {
     <div className={styles.backdrop}>
       <div className={styles.modal}>{children}</div>
     </div>,
-
     modalRoot
   );
 };

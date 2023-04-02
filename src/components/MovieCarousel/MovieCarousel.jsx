@@ -25,6 +25,8 @@ const MovieCarousel = ({ genre: { name, id } }) => {
   } = useTranslation();
 
   const location = useLocation();
+
+  // observer settings
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 1,
@@ -32,20 +34,15 @@ const MovieCarousel = ({ genre: { name, id } }) => {
     initialInView: false,
   });
 
+  // fetching data
   const { data, isLoading } = useQuery({
     queryKey: [name],
     queryFn: () => {
-      if (!inView) {
-        return [];
-      }
-
       if (name === TRENDING) {
         return getTrendingMovies(language);
       }
       return getMoviesByGenre(id, language);
     },
-    staleTime: 'Infinity',
-    refetchOnMount: true,
     enabled: inView,
   });
 

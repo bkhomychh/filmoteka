@@ -48,12 +48,14 @@ const MovieInfo = ({ movie }) => {
     i18n: { language },
   } = useTranslation();
 
+  // fetching data
   useEffect(() => {
     getVideos(id, language)
       .then(res => setMovieKey(res[0]?.key))
       .catch(err => console.log(err));
   }, [id, language]);
 
+  // adding a movie to the Bookmarks
   const addToBookmarks = () => {
     const data = getDataFromLocalStorage('movies');
     const movies = data ? data : [];
@@ -69,6 +71,7 @@ const MovieInfo = ({ movie }) => {
     setIsSaved(true);
   };
 
+  // adding a movie from the Bookmarks
   const removeFromBookMarks = () => {
     const data = getDataFromLocalStorage('movies');
     const movies = data ? data : [];

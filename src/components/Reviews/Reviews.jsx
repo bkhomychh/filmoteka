@@ -2,15 +2,15 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
+import { toast } from 'react-toastify';
+import { cutString, formatDate } from 'utils/formatting';
+import { getMovieReviews } from 'services/moviesAPI';
+
 import { Pagination, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/scss';
 import 'swiper/scss/pagination';
 import 'swiper/scss/scrollbar';
-
-import { getMovieReviews } from 'services/moviesAPI';
-import { toast } from 'react-toastify';
-import { cutString, formatDate } from 'utils/formatting';
 
 import styles from './Reviews.module.scss';
 
@@ -22,6 +22,7 @@ const Reviews = () => {
     i18n: { language },
   } = useTranslation();
 
+  // fetching data
   useEffect(() => {
     getMovieReviews(movieId, language)
       .then(res => setReviews(res))
