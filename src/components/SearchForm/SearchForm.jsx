@@ -1,16 +1,20 @@
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { GoSearch } from 'react-icons/go';
 import styles from './SearchForm.module.scss';
 
-const SearchForm = ({ updateQueryString }) => {
+const SearchForm = ({ updateQueryString, searchQuery }) => {
+  const [inputValue, setInputValue] = useState(searchQuery ?? '');
   const { t } = useTranslation();
+
+  const handleChange = ({ target }) => {
+    setInputValue(target.value.trim());
+  };
 
   const handleSubmit = evt => {
     evt.preventDefault();
-
-    const inputValue = evt.target.elements.query.value.trim();
     updateQueryString(inputValue);
   };
 
@@ -21,6 +25,8 @@ const SearchForm = ({ updateQueryString }) => {
         type="text"
         placeholder={`${t('search.title')}...`}
         name="query"
+        value={inputValue}
+        onChange={handleChange}
       />
       <button className={styles.btn} type="submit">
         <GoSearch />
@@ -31,6 +37,7 @@ const SearchForm = ({ updateQueryString }) => {
 
 SearchForm.propTypes = {
   updateQueryString: PropTypes.func.isRequired,
+  searchQuery: PropTypes.string,
 };
 
 export default SearchForm;

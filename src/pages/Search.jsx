@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -9,11 +9,12 @@ import { getMoviesBySearchQuery } from 'services/moviesAPI';
 import { STATUS } from 'utils/constants';
 
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const Search = () => {
   const [status, setStatus] = useState(STATUS.IDLE);
   const [movies, setMovies] = useState([]);
+  const toastId = useRef(null);
+
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQuery = searchParams.get('query');
 
@@ -27,26 +28,22 @@ const Search = () => {
       return;
     }
 
-    const noticeOptions = {
-      position: 'top-right',
-      autoClose: 2500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      progress: undefined,
-      theme: 'light',
-    };
-
     setStatus(STATUS.PENDING);
     getMoviesBySearchQuery(searchQuery, language)
       .then(res => {
         setMovies(res);
         setStatus(STATUS.RESOLVED);
-        res.length < 1 &&
-          toast.error(t('search.message.failure'), noticeOptions);
+
+        // removing duplicate notifications
+        if (res.length < 1 && !toast.isActive(toastId.current)) {
+          toastId.current = toast.error(t('search.message.failure'));
+        }
       })
       .catch(err => {
-        toast.error(err.message, noticeOptions);
+        // removing duplicate notifications
+        if (!toast.isActive(toastId.current)) {
+          toastId.current = toast.error(err.message);
+        }
         setStatus(STATUS.REJECTED);
       });
   }, [searchQuery, t, language]);
@@ -59,7 +56,10 @@ const Search = () => {
   return (
     <>
       <h1>{t('search.title')}</h1>
-      <SearchForm updateQueryString={updateQueryString} />
+      <SearchForm
+        updateQueryString={updateQueryString}
+        searchQuery={searchQuery}
+      />
       {status === STATUS.PENDING && <PageLoader />}
       {status === STATUS.RESOLVED && movies.length > 0 && (
         <MovieList movies={movies} />

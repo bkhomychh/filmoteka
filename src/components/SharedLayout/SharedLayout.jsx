@@ -65,7 +65,7 @@ const SharedLayout = () => {
           </p>
         </div>
       </footer>
-      <ToastContainer />
+      <ToastContainer autoClose={3500} limit={3} theme="colored" />
     </>
   );
 };
