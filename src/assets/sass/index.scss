@@ -4,3 +4,7 @@
 @import './_common.scss';
 @import './_swiper.scss';
 @import './_simplebar.scss';
+
+* {
+  transition: background-color 350ms;
+}

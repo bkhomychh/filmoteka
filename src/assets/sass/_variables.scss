@@ -2,7 +2,7 @@ body {
   --text-color-primary: #111111;
   --text-color-secondary: #888888;
 
-  --background-color-primary: #ffffff;
+  --background-color-primary: #f9f9f9;
   --background-color-secondary: #ffffff;
 
   --color-accent: #ffc700;
@@ -10,7 +10,7 @@ body {
   --transition-function-primary: cubic-bezier(0.4, 0, 0.2, 1);
 
   &.dark {
-    --text-color-primary: #ffffff;
+    --text-color-primary: #f9f9f9;
     --text-color-secondary: #888888;
 
     --background-color-primary: #111111;
