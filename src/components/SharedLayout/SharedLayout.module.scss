@@ -4,16 +4,18 @@
   max-width: 480px;
   min-width: 320px;
   margin: 0 auto;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 16px;
+  padding-right: 16px;
 
   @include mixin.tablet {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 24px;
+    padding-right: 24px;
     max-width: 768px;
   }
 
   @include mixin.desktop {
+    padding-left: 32px;
+    padding-right: 32px;
     max-width: 1200px;
   }
 }
@@ -32,14 +34,35 @@
 
   @include mixin.tablet {
     position: relative;
-
-    margin-bottom: 10px;
   }
 }
 
 .main {
   flex-grow: 1;
-  padding-bottom: 30px;
+  margin: 16px 0;
+
+  @include mixin.tablet {
+    margin: 24px 0;
+  }
+  @include mixin.desktop {
+    margin: 32px 0;
+  }
+
+  & .container {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    height: 100%;
+    box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.12);
+
+    @include mixin.tablet {
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+    @include mixin.desktop {
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
+  }
 }
 
 .wrapper {
@@ -83,7 +106,7 @@
 }
 
 .footer {
-  padding: 20px 0 70px;
+  padding: 20px 0 40px;
 
   background-color: var(--background-color-primary);
   box-shadow: 0 0 1px var(--text-color-primary);

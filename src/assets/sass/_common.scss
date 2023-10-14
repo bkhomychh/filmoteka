@@ -14,8 +14,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 h1 {
@@ -35,7 +34,7 @@ button {
 }
 
 #root {
-  padding: 70px 0 60px;
+  padding: 60px 0;
   display: flex;
   flex-direction: column;
   width: 100%;

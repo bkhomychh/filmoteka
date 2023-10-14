@@ -6,7 +6,8 @@
   display: flex;
   justify-content: center;
   min-height: 150px;
-  max-height: 500px;
+  max-height: 350px;
+  height: 100%;
 
   overflow: hidden;
 
@@ -19,12 +20,18 @@
   @include mixin.tablet {
     min-height: 200px;
   }
+
+  @include mixin.desktop {
+    min-height: 200px;
+  }
 }
 
 .poster {
   max-height: 50vh;
+  height: 100%;
 
   transition: transform 250ms var(--transition-function-primary);
+  object-fit: cover;
 
   @include mixin.tablet {
     min-height: 234px;
@@ -43,6 +50,12 @@
 
 .title {
   font-size: 14px;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1; /* start showing ellipsis when 3rd line is reached */
+  white-space: pre-wrap;
 
   @include mixin.tablet {
     font-size: 20px;
@@ -68,4 +81,9 @@
   @include mixin.desktop {
     font-size: 18px;
   }
+}
+
+.info {
+  margin-top: auto;
+  min-height: 40px;
 }

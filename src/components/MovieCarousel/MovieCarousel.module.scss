@@ -1,5 +1,19 @@
 @use 'assets/sass/mixins' as mixin;
 
+.wrapper {
+  min-height: 240px;
+
+  margin-bottom: 16px;
+
+  @include mixin.tablet {
+    margin-bottom: 24px;
+  }
+
+  @include mixin.desktop {
+    margin-bottom: 32px;
+  }
+}
+
 .genre {
   margin-bottom: 16px;
   display: flex;
@@ -21,8 +35,6 @@
 
   @include mixin.tablet {
     margin-bottom: 20px;
-    padding-top: 20px;
-
     font-size: 24px;
   }
 
@@ -52,8 +64,4 @@
       margin-bottom: 20px;
     }
   }
-}
-
-.wrapper {
-  min-height: 300px;
 }

@@ -23,15 +23,26 @@
   top: 100%;
   left: 0;
   z-index: 10;
+  min-width: 100%;
 
   border-radius: 10px;
   background-color: var(--background-color-primary);
-  border: 1px solid var(--text-color-primary);
+  border: 1px solid var(--text-color-secondary);
 
   overflow: hidden;
 
   transition: transform 350ms var(--transition-function-primary),
     opacity 350ms var(--transition-function-primary);
+
+  opacity: 0;
+  transform: translateY(-30px);
+  pointer-events: none;
+}
+
+.shown {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
 }
 
 .langBtn {
@@ -39,6 +50,7 @@
   width: 100%;
   height: 100%;
 
+  text-align: left;
   color: var(--text-color-primary);
   background-color: var(--background-color-primary);
   box-shadow: 0 0 1px var(--text-color-primary);
