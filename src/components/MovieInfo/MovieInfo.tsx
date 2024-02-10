@@ -110,7 +110,7 @@ const MovieInfo = ({ movie }: IMovieInfoProps) => {
           </div>
 
           <Modal closeModal={toggleModal} isVisible={isModalOpen}>
-            <Trailer movieKey={movieKey} />
+            <Trailer movieKey={movieKey} canPlay={isModalOpen} />
           </Modal>
         </div>
       </div>

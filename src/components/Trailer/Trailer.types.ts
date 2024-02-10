@@ -1,3 +1,4 @@
 export interface ITrailerProps {
-	movieKey: string
+  movieKey: string;
+  canPlay: boolean;
 }
