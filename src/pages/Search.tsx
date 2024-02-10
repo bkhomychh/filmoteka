@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { toast, Id as ToastId } from 'react-toastify';
@@ -38,7 +38,7 @@ const Search = () => {
     onSuccess: data => {
       setStatus(STATUS.RESOLVED);
       // removing duplicate notifications
-      if (Number(data?.length) < 1 && toastId?.current && !toast.isActive(toastId?.current)) {
+      if (data?.length < 1 && toastId?.current && !toast.isActive(toastId?.current)) {
         toastId.current = toast.error(t('search.message.failure'));
       }
     },
@@ -50,6 +50,8 @@ const Search = () => {
     },
   });
 
+  const movieListMarkup = useMemo(() => <MovieList movies={movies} />, [movies]);
+
   const updateQueryString = (query: string) => {
     const newParams: SearchParams = query ? { query } : {};
     setSearchParams(newParams);
@@ -60,10 +62,8 @@ const Search = () => {
       <h1>{t('search.title')}</h1>
       <SearchForm updateQueryString={updateQueryString} searchQuery={searchQuery} />
       {status === STATUS.PENDING && <PageLoader />}
-      {status === STATUS.RESOLVED && Number(movies?.length) > 0 && <MovieList movies={movies} />}
-      {status === STATUS.RESOLVED && Number(movies?.length) === 0 && (
-        <p>{t('search.message.failure')}</p>
-      )}
+      {movies?.length > 0 && movieListMarkup}
+      {status === STATUS.RESOLVED && !movies?.length && <p>{t('search.message.failure')}</p>}
       {status === STATUS.REJECTED && <p>{t('search.message.error')}</p>}
     </>
   );
